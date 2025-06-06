@@ -1,0 +1,6 @@
+.changes off
+.echo off
+.headers on
+.mode table
+
+PRAGMA foreign_keys = on;

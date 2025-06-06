@@ -1,0 +1,33 @@
+[user]
+name = chollasit-dev
+email = 118034127+chollasit-dev@users.noreply.github.com
+
+[credential]
+helper = cache --timeout=3600
+
+[init]
+defaultBranch = main
+
+[merge]
+autostash = true
+
+[pull]
+default = current
+rebase = true
+
+[push]
+autoSetupRemote = true
+default = simple # push to matching branch name by default
+
+[rerere]
+enabled = true # reused, recorded, resolution to solve conflict
+
+[rebase]
+autostash = true
+autosquash = true
+
+[filter "lfs"]
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
