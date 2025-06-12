@@ -34,6 +34,13 @@ return {
     },
   },
 
+  -- kitty terminal syntax
+  {
+    "fladson/vim-kitty",
+    ft = "kitty",
+    -- tag = "*", -- if select a tagged version
+  },
+
   -- mason related
   {
     "neovim/nvim-lspconfig",
