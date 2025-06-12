@@ -11,6 +11,7 @@ local servers = {
   "docker_compose_language_service",
   "dockerls",
   "html",
+  "hyprls",
   "jsonls",
   "nginx_language_server",
   "nil_ls",
