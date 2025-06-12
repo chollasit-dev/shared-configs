@@ -5,14 +5,10 @@ lint.linters_by_ft = {
   dockerfile = { "hadolint" },
   gitcommit = { "gitlint", "commitlint" },
   go = { "golangci-lint" },
-  javascript = { "eslint_d" },
-  javascriptreact = { "eslint_d" },
   markdown = { "markdownlint-cli2" },
   python = { "ruff" },
   sh = { "shellcheck" },
   sql = { "sqlfluff" },
-  typescript = { "eslint_d" },
-  typescriptreact = { "eslint_d" },
   zsh = { "shellcheck" },
 }
 
