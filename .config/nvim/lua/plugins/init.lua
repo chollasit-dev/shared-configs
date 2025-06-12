@@ -1,4 +1,7 @@
 return {
+  -------------------------
+  -- syntax highlighting --
+  -------------------------
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -33,7 +36,6 @@ return {
       },
     },
   },
-
   -- kitty terminal syntax
   {
     "fladson/vim-kitty",
@@ -41,7 +43,9 @@ return {
     -- tag = "*", -- if select a tagged version
   },
 
-  -- mason related
+  -------------------
+  -- mason related --
+  -------------------
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -60,26 +64,9 @@ return {
     opts = require "configs.conform",
   },
 
-  -- debugger
-  {
-    "mfussenegger/nvim-dap",
-    config = require "configs.dap.config",
-    dependencies = {
-      {
-        "rcarriga/nvim-dap-ui",
-        config = require "configs.dap-ui.config",
-        keys = require "configs.dap-ui.keys",
-      },
-      "nvim-neotest/nvim-nio",
-      {
-        -- virtual text for debugger display kinda like ai suggestion
-        "theHamsta/nvim-dap-virtual-text",
-        opts = {},
-      },
-    },
-    keys = require "configs.dap.keys",
-  },
-
+  ------------------
+  -- language qol --
+  ------------------
   -- go
   {
     "leoluz/nvim-dap-go",
@@ -105,7 +92,6 @@ return {
     event = { "CmdlineEnter" },
     ft = { "go", "gomod" },
   },
-
   -- python
   {
     "mfussenegger/nvim-dap-python",
@@ -116,8 +102,44 @@ return {
     dependencies = "mfussenegger/nvim-dap",
     event = { "bufEnter *.py" },
   },
+  -- markup
+  {
+    "windwp/nvim-ts-autotag",
+    ft = {
+      "html",
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+    },
+    opts = {},
+  },
 
-  -- database UI
+  --------------
+  -- debugger --
+  --------------
+  {
+    "mfussenegger/nvim-dap",
+    config = require "configs.dap.config",
+    dependencies = {
+      {
+        "rcarriga/nvim-dap-ui",
+        config = require "configs.dap-ui.config",
+        keys = require "configs.dap-ui.keys",
+      },
+      "nvim-neotest/nvim-nio",
+      {
+        -- virtual text for debugger display kinda like ai suggestion
+        "theHamsta/nvim-dap-virtual-text",
+        opts = {},
+      },
+    },
+    keys = require "configs.dap.keys",
+  },
+
+  --------------
+  -- database --
+  --------------
   {
     "kristijanhusak/vim-dadbod-ui",
     cmd = {
@@ -144,19 +166,9 @@ return {
     },
   },
 
-  -- markup qol
-  {
-    "windwp/nvim-ts-autotag",
-    ft = {
-      "html",
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact",
-    },
-    opts = {},
-  },
-
+  ----------------
+  -- editor qol --
+  ----------------
   -- git
   {
     "NeogitOrg/neogit",
@@ -170,14 +182,6 @@ return {
     },
     lazy = false,
   },
-
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {},
-  },
-
-  -- neovim qol
   -- floating terminal
   {
     "numToStr/FTerm.nvim",
@@ -192,16 +196,11 @@ return {
       env = nil,
     },
   },
-  -- render markdown
+  -- todo
   {
-    "MeanderingProgrammer/render-markdown.nvim",
-    config = function()
-      require("render-markdown").setup {
-        completions = { lsp = { enabled = true } },
-      }
-    end,
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-    event = { "bufEnter" },
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
   },
   -- notify popup
   {
@@ -215,20 +214,36 @@ return {
     end,
     event = "VeryLazy",
   },
-  -- ai
+  -- copilot
   {
-    "sourcegraph/sg.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
+    "zbirenbaum/copilot.lua",
+    build = ":Copilot auth",
+    event = "BufReadPost",
+    opts = {
+      panel = {
+        enabled = false,
+      },
+      suggestion = {
+        auto_trigger = true,
+        hide_during_completion = true,
+        debounce = 100,
+      },
+      filetypes = {
+        gitcommit = true,
+        help = true,
+        markdown = true,
+      },
     },
-    lazy = false,
-    opts = {},
   },
-  -- color picker
-  { "nvzone/volt", lazy = true },
+  -- render markdown
   {
-    "nvzone/minty",
-    cmd = { "Shades", "Huefy" },
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+    ft = { "markdown", "Avante" },
+    lazy = false,
+    opts = {
+      completions = { lsp = { enabled = true } },
+      file_types = { "markdown", "Avante" },
+    },
   },
 }
