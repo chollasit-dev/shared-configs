@@ -246,4 +246,18 @@ return {
       file_types = { "markdown", "Avante" },
     },
   },
+  -- render whitespace
+  {
+    "mcauley-penney/visual-whitespace.nvim",
+    config = function()
+      -- either in color scheme or in plugin config.
+      vim.api.nvim_set_hl(0, "VisualNonText", { fg = "#727376", background = "#57575A" })
+    end,
+    event = "ModeChanged *:[vV\22]",
+    opts = {
+      highlight = {
+        link = "*",
+      },
+    },
+  },
 }
