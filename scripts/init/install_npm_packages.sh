@@ -10,8 +10,16 @@ PRETTIER_PLUGINS=(
   prettier-plugin-tailwindcss
 )
 
+PACKAGES=(
+  @google/gemini-cli
+)
+
 if command -v pnpm &>/dev/null; then
-  pnpm add -D "${PRETTIER_PLUGINS[@]}"
+  # global
+  pnpm add -g "${PACKAGES[@]}"
+
+  # Should be global but located at `$HOME` for usability.
+  cd && pnpm add -D "${PRETTIER_PLUGINS[@]}"
 fi
 
 unset -v PRETTIER_PLUGINS
