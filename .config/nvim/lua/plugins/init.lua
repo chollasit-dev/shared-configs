@@ -72,9 +72,10 @@ return {
     config = function()
       local HEIGHT_RATIO = 0.8
       local WIDTH_RATIO = 0.7
-
       require("nvim-tree").setup {
         view = {
+          centralize_selection = true,
+          relativenumber = true,
           float = {
             enable = true,
             open_win_config = function()
@@ -99,6 +100,14 @@ return {
           width = function()
             return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
           end,
+        },
+        update_focused_file = {
+          enable = true,
+          update_root = {
+            enable = false,
+            ignore_list = {},
+          },
+          exclude = false,
         },
       }
     end,
