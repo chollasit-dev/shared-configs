@@ -1,7 +1,7 @@
 return {
-  -------------------------
-  -- syntax highlighting --
-  -------------------------
+  --------------------------
+  --- syntax highlighting ---
+  --------------------------
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -43,9 +43,9 @@ return {
     -- tag = "*", -- if select a tagged version
   },
 
-  -------------------
-  -- mason related --
-  -------------------
+  ---------------------
+  --- mason related ---
+  ---------------------
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -64,9 +64,9 @@ return {
     opts = require "configs.conform",
   },
 
-  -------------------
-  -- file explorer --
-  -------------------
+  ---------------------
+  --- file explorer ---
+  ---------------------
   {
     "nvim-tree/nvim-tree.lua",
     config = function()
@@ -113,9 +113,9 @@ return {
     end,
   },
 
-  ------------------
-  -- language qol --
-  ------------------
+  --------------------
+  --- language qol ---
+  --------------------
   -- go
   {
     "leoluz/nvim-dap-go",
@@ -164,9 +164,9 @@ return {
     opts = {},
   },
 
-  --------------
-  -- debugger --
-  --------------
+  ----------------
+  --- debugger ---
+  ----------------
   {
     "mfussenegger/nvim-dap",
     config = require "configs.dap.config",
@@ -186,9 +186,9 @@ return {
     keys = require "configs.dap.keys",
   },
 
-  --------------
-  -- database --
-  --------------
+  ----------------
+  --- database ---
+  ----------------
   {
     "kristijanhusak/vim-dadbod-ui",
     cmd = {
@@ -215,9 +215,9 @@ return {
     },
   },
 
-  ----------------
-  -- editor qol --
-  ----------------
+  ------------------
+  --- editor qol ---
+  ------------------
   -- git
   {
     "NeogitOrg/neogit",
