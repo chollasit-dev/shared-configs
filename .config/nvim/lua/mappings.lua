@@ -30,9 +30,12 @@ map("n", "<C-d>", "<C-d>zz", { desc = "move half page down then centered" })
 map("n", "<leader>bd", function()
   require("nvchad.tabufline").close_buffer()
 end, { desc = "buffer close" })
+map("n", "<leader>ba", "<cmd>bufdo bd<CR>", { desc = "buffer close all" })
 
 -- tab
-map("n", "<leader><Tab>d", "<cmd>tabclose<CR>", { desc = "close current tab" })
+map("n", "<leader><Tab>d", "<cmd>tabclose<CR>", { desc = "tab close current" })
+map("n", "<leader><Tab>n", "<cmd>tabnew<CR>", { desc = "tab new" })
+map("n", "<leader><Tab>m", "<cmd>tabmove<CR>", { desc = "tab move" })
 
 -- file
 map("n", "<leader>fe", "<cmd>NvimTreeToggle<CR>", { desc = "nvim tree toggle" })
