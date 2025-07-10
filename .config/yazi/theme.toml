@@ -1,0 +1,5 @@
+# https://github.com/yazi-rs/flavors/tree/main/catppuccin-mocha.yazi
+
+[flavor]
+dark = "catppuccin-mocha"
+light = "catppuccin-mocha"
