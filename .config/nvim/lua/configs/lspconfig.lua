@@ -21,6 +21,7 @@ local servers = {
   "sqlls",
   "sqls",
   "tailwindcss",
+  "taplo",
   "ts_ls",
   "yamlls",
 }
