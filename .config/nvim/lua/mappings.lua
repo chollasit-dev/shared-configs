@@ -98,3 +98,11 @@ end, { desc = "previous todo comment" })
 map("n", "<leader>pat", "<cmd>GoAddTag<CR>", { desc = "add Go tag" })
 map("n", "<leader>pfs", "<cmd>GoFillStruct<CR>", { desc = "auto fill Go struct" })
 map("n", "<leader>pie", "<cmd>GoIfErr<CR>", { desc = "add Go if err" })
+
+-- custom
+map("n", "<leader>1", "<cmd>e ~/Documents/docs/TODO.md<CR>", { desc = "quick personal TODO scribble" })
+map("n", "<leader>2", "<cmd>e ~/Documents/docs/TODO-future.md<CR>", { desc = "future TODO scribble" })
+map("n", "<leader>3", "<cmd>e ~/Documents/docs/TODO-job.md<CR>", { desc = "quick job TODO scribble" })
+map("n", "<leader><A-1>", "<cmd>cd ~/Documents/docs<CR>", { desc = "goto notes directory" })
+map("n", "<leader><A-2>", "<cmd>cd ~/projects/personal/playground<CR>", { desc = "goto code playground directory" })
+map("n", "<leader><A-3>", "<cmd>cd ~/projects/jobs/level11/pman<CR>", { desc = "goto main job directory" })
