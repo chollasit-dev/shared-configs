@@ -22,6 +22,7 @@ return {
         "gotmpl",
         "html",
         "javascript",
+        "just",
         "lua",
         "markdown",
         "markdown_inline",
