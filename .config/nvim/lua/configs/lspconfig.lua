@@ -14,6 +14,7 @@ local servers = {
   "html",
   "hyprls",
   "jsonls",
+  "just",
   "nginx_language_server",
   "nil_ls",
   "pyright",
