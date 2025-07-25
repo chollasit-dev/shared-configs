@@ -1,7 +1,7 @@
 HISTORY_FILES=(
   "$HOME/.HISTFILE"
   "$HOME/.bash_history"
-  "$HOME/.zsh_history"
+  "$HOME/.config/litecli/history"
   "$HOME/.mongodb/mongosh/mongosh_repl_history"
   "$HOME/.mongodb/mongosh/{*_log,*_history}"
   "$HOME/.node_repl_history"
@@ -11,6 +11,7 @@ HISTORY_FILES=(
   "$HOME/.sqlite_history"
   "$HOME/.tig_history"
   "$HOME/.ts_node_repl_history"
+  "$HOME/.zsh_history"
 )
 
 for file in "${HISTORY_FILES[@]}"; do
