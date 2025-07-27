@@ -55,12 +55,17 @@ map("n", "<leader>sw", "<cmd>Telescope live_grep<CR>", { desc = "telescope live 
 map("n", "<leader>un", "<cmd>Noice dismiss<CR>", { desc = "noice dismiss" })
 
 -- lazy
-map("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "lazy" })
+map("n", "<leader>lo", "<cmd>Lazy<CR>", { desc = "lazy" })
 
 -- mason
 map("n", "<leader>cmi", "<cmd>MasonInstallAll<CR>", { desc = "mason install all" })
 map("n", "<leader>cmo", "<cmd>Mason<CR>", { desc = "mason" })
 map("n", "<leader>cmu", "<cmd>MasonUpdate<CR>", { desc = "mason update" })
+
+-- lint
+map("n", "<leader>lm", function()
+  require("lint").try_lint()
+end, { desc = "nvim-lint manually" })
 
 -- git
 map("n", "<leader>gB", "<cmd>Gitsigns blame<CR>", { desc = "gitsigns blame" })
