@@ -11,3 +11,4 @@ opt.history = 20
 local o = vim.o
 o.cursorlineopt = "both"
 o.relativenumber = true
+o.virtualedit = "all"
