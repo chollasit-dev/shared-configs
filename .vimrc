@@ -31,6 +31,9 @@
 " Set to show numbers in each lines in relative mode
 set relativenumber
 
+" Set allow moving on an empty character (not space)
+set virtualedit=all
+
 " Sets how many lines of history VIM has to remember
 set history=50
 
