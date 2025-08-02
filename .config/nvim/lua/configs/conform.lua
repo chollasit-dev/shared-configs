@@ -20,6 +20,8 @@ local opts = {
     typescriptreact = { "prettierd" },
     yaml = { "prettierd" },
     zsh = { "shfmt" },
+    ["*"] = { "trim_whitespace" },
+    ["_"] = { "trim_whitespace" }, -- fallback when no formatter for particular filetype,
   },
 
   -- If this is set, Conform will run the formatter on save.
