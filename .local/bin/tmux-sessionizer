@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+workspaces=(
+  "$HOME/projects/${workspaces[0]}"
+  "$HOME/projects/${workspaces[1]}"
+  "$HOME/projects/${workspaces[2]}"
+)
+
+has_session() {
+  if tmux has-session -t "$1" 2>/dev/null; then
+    tmux attach -t "$1"
+  else
+    tmux new -ds "$1"
+
+    case "$1" in
+    "${workspaces[0]}")
+      local workdir="${workspaces[0]}"
+
+      tmux renamew -t 1 "nvim" &&
+        tmux send-keys -t "$1:nvim" "cd $workdir && nvim" C-m
+      ;;
+
+    "${workspaces[1]}")
+      local workdir="${workspaces[1]}"
+
+      tmux renamew -t 1 "nvim" &&
+        tmux send-keys -t "$1:nvim" "cd $workdir && nvim" C-m
+      ;;
+
+    "${workspaces[2]}")
+      local workdir="${workspaces[2]}"
+
+      tmux renamew -t 1 "nvim" &&
+        tmux send-keys -t "$1:nvim" "cd $workdir && nvim" C-m
+      ;;
+
+    *)
+      echo "Invalid workspace"
+      ;;
+
+    esac
+    tmux attach -t "$1"
+  fi
+}
+
+PS3="Which workspace do you wanna go? ❯ "
+select workspace in "${workspaces[@]}"; do
+  has_session "$workspace"
+  break
+done
+
+unset -v workspaces
