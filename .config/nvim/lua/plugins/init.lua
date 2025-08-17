@@ -20,6 +20,7 @@ return {
         "gomod",
         "gosum",
         "gotmpl",
+        "haskell",
         "html",
         "javascript",
         "just",
@@ -141,6 +142,12 @@ return {
     end,
     event = { "CmdlineEnter" },
     ft = { "go", "gomod" },
+  },
+  -- haskell
+  {
+    "mrcjkb/haskell-tools.nvim",
+    version = "^6", -- recommended
+    lazy = false, -- this plugin is already lazy
   },
   -- python
   {
