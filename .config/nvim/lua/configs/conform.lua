@@ -1,10 +1,13 @@
 local opts = {
   formatters_by_ft = {
+    ["*"] = { "trim_whitespace" },
+    ["_"] = { "trim_whitespace" }, -- fallback when no formatter for particular filetype,
     ["markdown.mdx"] = { "prettierd", "markdownlint-cli2", "markdown-toc" },
     bash = { "shfmt" },
     css = { "prettierd" },
     gitconfig = { "shfmt" },
     go = { "goimports-reviser", "golines" },
+    haskell = { "fourmolu" },
     html = { "prettierd" },
     javascript = { "prettierd" },
     javascriptreact = { "prettierd" },
@@ -20,8 +23,6 @@ local opts = {
     typescriptreact = { "prettierd" },
     yaml = { "prettierd" },
     zsh = { "shfmt" },
-    ["*"] = { "trim_whitespace" },
-    ["_"] = { "trim_whitespace" }, -- fallback when no formatter for particular filetype,
   },
 
   -- If this is set, Conform will run the formatter on save.
