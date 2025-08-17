@@ -17,6 +17,7 @@ local servers = {
   "just",
   "nginx_language_server",
   "nil_ls",
+  "nixd",
   "pyright",
   "ruff",
   "sqlls",
@@ -53,20 +54,16 @@ lspconfig.gopls.setup {
   },
 }
 
--- external lsp
+-- haskell
 
--- nix
--- Neovim v0.11+
-vim.lsp.config["nixd"] = {
-  cmd = { "/home/user/.nix-profile/bin/nixd" },
-  filetypes = { "nix" },
+-- NOTE: expected standard GHC bin name `ghc`
+-- installation via `ghcup` should aware of this
+
+vim.lsp.config("hls", {
+  cmd = { "haskell-language-server-9.12.2~2.11.0.0", "--lsp" },
+  filetypes = { "haskell", "lhaskell", "cabal" },
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
-  settings = {
-    nixpkgs = {
-      expr = "import <nixpkgs> {}",
-    },
-  },
-}
-vim.lsp.enable "nixd"
+})
+vim.lsp.enable "hls"

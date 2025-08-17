@@ -13,7 +13,9 @@ setopt LIST_TYPES
 # Might needed if come from Bash.
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 # Go
-export PATH="$HOME/go/bin:$HOME/bin:$PATH:/usr/local/go/bin"
+export PATH="$HOME/go/bin:$HOME/bin:/usr/local/go/bin:$PATH"
+# Haskell
+export PATH="$HOME/.ghcup/bin:$PATH"
 # Oh My Zsh
 export ZSH="$HOME/.oh-my-zsh"
 

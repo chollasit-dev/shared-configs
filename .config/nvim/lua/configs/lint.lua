@@ -5,6 +5,7 @@ lint.linters_by_ft = {
   dockerfile = { "hadolint" },
   gitcommit = { "gitlint", "commitlint" },
   go = { "golangci-lint" },
+  haskell = { "hlint" },
   markdown = { "markdownlint-cli2" },
   python = { "ruff" },
   sh = { "shellcheck" },
