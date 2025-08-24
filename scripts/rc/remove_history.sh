@@ -11,7 +11,7 @@ HISTORY_FILES=(
   "$HOME/.sqlite_history"
   "$HOME/.tig_history"
   "$HOME/.ts_node_repl_history"
-  "$HOME/.zsh_history"
+  # "$HOME/.zsh_history"
 )
 
 for file in "${HISTORY_FILES[@]}"; do
