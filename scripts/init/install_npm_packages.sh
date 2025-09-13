@@ -30,4 +30,4 @@ pnpm add -g "${PACKAGES[@]}" && pnpm approve-builds -g
 # Should be global but located at `$HOME` for usability.
 cd && pnpm add -D "${PRETTIER_PLUGINS[@]}" && pnpm approve-builds
 
-unset -v PRETTIER_PLUGINS
+unset -v PRETTIER_PLUGINS PACKAGES
