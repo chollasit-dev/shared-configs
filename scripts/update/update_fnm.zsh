@@ -18,6 +18,9 @@ if [ "$NODE_GLOBAL_CURRENT_VERSION" != "$NODE_LATEST_LTS" ]; then
   if ! command -v node &>/dev/null; then
     fnm install --lts && fnm use &&
       node -v >"$GLOBAL_NODE_VERSION_PATH" && echo "Installed node $NODE_LATEST_LTS, please manually create a symlink at $GLOBAL_NODE_VERSION_PATH"
+  else
+    fnm install --lts && fnm use lts-latest &&
+      node -v >"$GLOBAL_NODE_VERSION_PATH" && echo "Installed node $NODE_LATEST_LTS and updated currently used node version"
   fi
 fi
 
