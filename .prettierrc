@@ -10,7 +10,16 @@
   "htmlWhitespaceSensitivity": "css",
   "insertPragma": false,
   "jsxSingleQuote": true,
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
+    }
+  ],
   "plugins": [
+    "prettier-plugin-astro",
     "prettier-plugin-css-order",
     "prettier-plugin-go-template",
     "prettier-plugin-jsdoc",
