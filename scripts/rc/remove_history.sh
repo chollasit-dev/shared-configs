@@ -2,6 +2,7 @@ HISTORY_FILES=(
   "$HOME/.HISTFILE"
   "$HOME/.bash_history"
   "$HOME/.config/litecli/history"
+  "$HOME/.local/share/nix/repl-history"
   "$HOME/.mongodb/mongosh/mongosh_repl_history"
   "$HOME/.mongodb/mongosh/{*_log,*_history}"
   "$HOME/.node_repl_history"
