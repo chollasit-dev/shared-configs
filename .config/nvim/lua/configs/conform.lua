@@ -3,6 +3,7 @@ local opts = {
     ["*"] = { "trim_whitespace" },
     ["_"] = { "trim_whitespace" }, -- fallback when no formatter for particular filetype,
     ["markdown.mdx"] = { "prettierd", "markdownlint-cli2", "markdown-toc" },
+    astro = { "prettierd" },
     bash = { "shfmt" },
     css = { "prettierd" },
     gitconfig = { "shfmt" },
