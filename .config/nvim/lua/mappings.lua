@@ -19,12 +19,14 @@ map("n", "<leader>`", "<cmd>bNext<CR>", { desc = "go to next buffer" })
 map("n", "<leader>n", "<cmd>Telescope notify<CR>", { desc = "telescope notify history" })
 
 -- quit
-map("n", "<leader>qq", "<cmd>qa<CR>", { desc = "quit all" })
+map("n", "<leader>qq", "<cmd>mks!<CR><cmd>qa<CR>", { desc = "quit all and save session" })
 map("n", "<leader>Q", "<cmd>qa!<CR>", { desc = "quit all force" })
 
 -- editor
 map("n", "<C-u>", "<C-u>zz", { desc = "move half page up then centered" })
 map("n", "<C-d>", "<C-d>zz", { desc = "move half page down then centered" })
+map("n", "<C-b>", "<C-b>zz", { desc = "move entire page up then centered" })
+map("n", "<C-f>", "<C-f>zz", { desc = "move entire page down then centered" })
 
 -- tabufline
 map("n", "<leader>bd", function()
