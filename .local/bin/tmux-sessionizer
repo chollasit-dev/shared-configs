@@ -1,37 +1,125 @@
 #!/usr/bin/env bash
 
-workspaces=(
-  "$HOME/projects/${workspaces[0]}"
-  "$HOME/projects/${workspaces[1]}"
-  "$HOME/projects/${workspaces[2]}"
+explorer_dir="$HOME/Downloads/"
+# test_dir="$HOME/projects/personal/tsplay/"
+
+personal_workspaces=(
+  "$HOME/Documents/"
+  "$HOME/projects/personal/watchls-app/"
+  "$HOME/projects/personal/your-watch-list/"
+  "$HOME/projects/personal/goscrape-smth/"
+)
+job_workspaces=(
+  "$HOME/projects/jobs/level11/pman/level11-fix-popup-wording-delete-to-disprove/"
+  "$HOME/projects/jobs/level11/pman/level11-frontend-deps-upgrade/"
+  "$HOME/projects/jobs/level11/pman/level11-fix-post-allocation-unconfirm-modal-no-data/"
+  "$HOME/projects/jobs/level11/pman/level11-feat-unit-allocation-page/"
 )
 
-has_session() {
-  if tmux has-session -t "$1" 2>/dev/null; then
-    tmux attach -t "$1"
+: "
+$1: workspace name to set
+$2: cwd to set
+"
+new_side_proj_workspace() {
+  tmux renamew -t 1 "nvim" &&
+    tmux send-keys -t "$1:nvim" "cd $2 && nvim" C-m
+  tmux neww -t "$1" -n "explorer" &&
+    tmux send-keys -t "$1:explorer" "yazi $explorer_dir" C-m
+}
+: "
+$1: workspace name to set
+$2: cwd to set
+"
+new_pman_workspace() {
+  tmux renamew -t 1 "nvim" &&
+    tmux send-keys -t "$1:nvim" "cd $2 && nvim" C-m
+
+  tmux neww -t "$1" -n "server" &&
+    tmux send-keys -t "$1:server" "cd ${2}packages/backend/level11-server/ && make pulse" C-m
+
+  tmux neww -t "$1" -n "frontend" &&
+    tmux send-keys -t "$1:frontend" "cd $2 && yarn dev" C-m
+
+  tmux neww -t "$1" -n "bundler" &&
+    tmux send-keys -t "$1:bundler" "cd $2 && yarn g:watch" C-m
+
+  tmux neww -t "$1" -n "explorer" &&
+    tmux send-keys -t "$1:explorer" "yazi $explorer_dir"
+
+  # tmux neww -t "$1" -n "test" &&
+  #   tmux send-keys -t "$1:test" "cd $test_dir && nvim" C-m
+}
+
+: "
+TODO: change from hard code option with array indexes to smth. better
+$1: workspace name to set
+"
+new_or_attach_session() {
+  local workspace_name
+  # TODO: enhance auto naming to avoid conflicts between each session
+  workspace_name="$(basename "$1" | sed "s/-//g" | cut -c 1-8)"
+
+  if tmux has-session -t "$workspace_name" 2>/dev/null; then
+    tmux attach -t "$workspace_name"
   else
-    tmux new -ds "$1"
+    tmux new -ds "$workspace_name"
 
     case "$1" in
-    "${workspaces[0]}")
-      local workdir="${workspaces[0]}"
-
-      tmux renamew -t 1 "nvim" &&
-        tmux send-keys -t "$1:nvim" "cd $workdir && nvim" C-m
+    # Job
+    "${job_workspaces[0]}")
+      local workdir="${job_workspaces[0]}"
+      new_pman_workspace "$workspace_name" "$workdir"
       ;;
 
-    "${workspaces[1]}")
-      local workdir="${workspaces[1]}"
-
-      tmux renamew -t 1 "nvim" &&
-        tmux send-keys -t "$1:nvim" "cd $workdir && nvim" C-m
+    "${job_workspaces[1]}")
+      local workdir="${job_workspaces[1]}"
+      new_pman_workspace "$workspace_name" "$workdir"
       ;;
 
-    "${workspaces[2]}")
-      local workdir="${workspaces[2]}"
+    "${job_workspaces[2]}")
+      local workdir="${job_workspaces[2]}"
+      new_pman_workspace "$workspace_name" "$workdir"
+      ;;
 
-      tmux renamew -t 1 "nvim" &&
-        tmux send-keys -t "$1:nvim" "cd $workdir && nvim" C-m
+    "${job_workspaces[3]}")
+      local workdir="${job_workspaces[3]}"
+      new_pman_workspace "$workspace_name" "$workdir"
+      ;;
+
+    "${job_workspaces[4]}")
+      local workdir="${job_workspaces[4]}"
+      new_pman_workspace "$workspace_name" "$workdir"
+      ;;
+
+    "${job_workspaces[5]}")
+      local workdir="${job_workspaces[5]}"
+      new_pman_workspace "$workspace_name" "$workdir"
+      ;;
+
+    # Personal
+    "${personal_workspaces[0]}")
+      local workdir="${personal_workspaces[0]}"
+      new_side_proj_workspace "$workspace_name" "$workdir"
+      ;;
+
+    "${personal_workspaces[1]}")
+      local workdir="${personal_workspaces[1]}"
+      new_side_proj_workspace "$workspace_name" "$workdir"
+      ;;
+
+    "${personal_workspaces[2]}")
+      local workdir="${personal_workspaces[2]}"
+      new_side_proj_workspace "$workspace_name" "$workdir"
+      ;;
+
+    "${personal_workspaces[3]}")
+      local workdir="${personal_workspaces[3]}"
+      new_side_proj_workspace "$workspace_name" "$workdir"
+      ;;
+
+    "${personal_workspaces[4]}")
+      local workdir="${personal_workspaces[4]}"
+      new_side_proj_workspace "$workspace_name" "$workdir"
       ;;
 
     *)
@@ -39,14 +127,14 @@ has_session() {
       ;;
 
     esac
-    tmux attach -t "$1"
+    tmux attach -t "$workspace_name"
   fi
 }
 
 PS3="Which workspace do you wanna go? ❯ "
-select workspace in "${workspaces[@]}"; do
-  has_session "$workspace"
+select workspace in "${job_workspaces[@]}" "${personal_workspaces[@]}"; do
+  new_or_attach_session "$workspace"
   break
 done
 
-unset -v workspaces
+unset -v explorer_dir test_dir job_workspaces
