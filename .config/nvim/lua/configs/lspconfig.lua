@@ -9,7 +9,6 @@ local servers = {
   "cssls",
   "docker_compose_language_service",
   "dockerls",
-  "eslint",
   "html",
   "hyprls",
   "jsonls",
@@ -34,6 +33,16 @@ vim.lsp.config("*", {
 for _, lsp in ipairs(servers) do
   vim.lsp.enable(lsp)
 end
+
+-- eslint
+vim.lsp.config("eslint", {
+  settings = {
+    codeActionOnSave = {
+      enable = true,
+    },
+  },
+})
+vim.lsp.enable "eslint"
 
 -- go
 vim.lsp.config("gopls", {
