@@ -20,7 +20,7 @@ if [ "$NODE_GLOBAL_CURRENT_VERSION" != "$NODE_LATEST_LTS" ]; then
       node -v >"$GLOBAL_NODE_VERSION_PATH" && echo "Installed node $NODE_LATEST_LTS, please manually create a symlink at $GLOBAL_NODE_VERSION_PATH"
   else
     fnm install --lts && fnm use lts-latest &&
-      node -v >"$GLOBAL_NODE_VERSION_PATH" && echo "Installed node $NODE_LATEST_LTS and updated currently used node version"
+      node -v >"$GLOBAL_NODE_VERSION_PATH" && fnm default "$NODE_LATEST_LTS" && fnm uninstall "$NODE_GLOBAL_CURRENT_VERSION" && echo "Installed node $NODE_LATEST_LTS and updated currently used node version"
   fi
 fi
 
