@@ -21,6 +21,7 @@ return {
         "gomod",
         "gosum",
         "gotmpl",
+        "groovy",
         "haskell",
         "html",
         "javascript",
