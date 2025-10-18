@@ -6,6 +6,7 @@ lint.linters_by_ft = {
   gitcommit = { "gitlint", "commitlint" },
   go = { "golangci-lint" },
   haskell = { "hlint" },
+  make = { "checkmake" },
   markdown = { "markdownlint-cli2" },
   python = { "ruff" },
   sh = { "shellcheck" },
