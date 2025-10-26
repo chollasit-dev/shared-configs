@@ -17,7 +17,6 @@ local servers = {
   "nginx_language_server",
   "nil_ls",
   "nixd",
-  "pyright",
   "ruff",
   "sqlls",
   "sqls",
@@ -57,6 +56,27 @@ vim.lsp.config("gopls", {
   },
 })
 vim.lsp.enable "gopls"
+
+local pythonPath = vim.fn.getcwd() .. "/.venv/bin/python"
+if not vim.fn.filereadable(pythonPath) then
+  pythonPath = "/bin/python"
+end
+vim.lsp.config("pyright", {
+  settings = {
+    python = {
+      -- https://microsoft.github.io/pyright/#/settings
+      analysis = {
+        autoImportCompletions = true,
+        autoSearchPaths = true,
+        diagnosticMode = "openFilesOnly",
+        typeCheckingMode = "standard",
+        useLibraryCodeForTypes = true,
+      },
+      pythonPath = pythonPath,
+    },
+  },
+})
+vim.lsp.enable "pyright"
 
 -- haskell
 -- NOTE: expected standard GHC bin name `ghc`
