@@ -7,9 +7,11 @@ if ! command -v fzf &>/dev/null; then
 fi
 
 explorer_dir="$HOME/Downloads/"
-job_dir="$HOME/projects/jobs/level11/pman/"
 
-job_workspaces=$(find "$job_dir" -maxdepth 1 -type d)
+job_dirs="$(find "$HOME/projects/jobs/level11/pman/" -maxdepth 1 -type d)"
+job_dirs="$job_dirs
+$(find "$HOME/projects/jobs/freelance/" -maxdepth 1 -type d)"
+job_workspaces="$job_dirs"
 
 personal_workspaces=$(find "$HOME/projects/personal/" -maxdepth 1 -type d)
 personal_workspaces="$personal_workspaces
@@ -34,28 +36,32 @@ if tmux has-session -t "$workspace_name" 2>/dev/null; then
   tmux attach -t "$workspace_name"
 else
   tmux new -ds "$workspace_name"
+
+  tmux renamew -t 1 "nvim" &&
+    tmux send-keys -t "$workspace_name:nvim" "cd $workspace && nvim" C-m
+
   if [ "$is_job" = "y" ] || [ "$is_job" = "Y" ]; then
-    tmux renamew -t 1 "nvim" &&
-      tmux send-keys -t "$workspace_name:nvim" "cd $workspace && nvim" C-m
+    if [[ "$workspace" == *"level11"*"pman"* ]]; then
+      tmux neww -t "$workspace_name" -n "server" &&
+        tmux send-keys -t "$workspace_name:server" "cd $workspace/packages/backend/level11-server/ && make pulse" C-m
 
-    tmux neww -t "$workspace_name" -n "server" &&
-      tmux send-keys -t "$workspace_name:server" "cd $workspace/packages/backend/level11-server/ && make pulse" C-m
+      tmux neww -t "$workspace_name" -n "frontend" &&
+        tmux send-keys -t "$workspace_name:frontend" "cd $workspace && yarn dev" C-m
 
-    tmux neww -t "$workspace_name" -n "frontend" &&
-      tmux send-keys -t "$workspace_name:frontend" "cd $workspace && yarn dev" C-m
+      tmux neww -t "$workspace_name" -n "bundler" &&
+        tmux send-keys -t "$workspace_name:bundler" "cd $workspace && yarn g:watch" C-m
 
-    tmux neww -t "$workspace_name" -n "bundler" &&
-      tmux send-keys -t "$workspace_name:bundler" "cd $workspace && yarn g:watch" C-m
-
-    tmux neww -t "$workspace_name" -n "explorer" &&
-      tmux send-keys -t "$workspace_name:explorer" "yazi $explorer_dir"
-  else
-    tmux renamew -t 1 "nvim" &&
-      tmux send-keys -t "$workspace_name:nvim" "cd $workspace && nvim" C-m
-    tmux neww -t "$workspace_name" -n "explorer" &&
-      tmux send-keys -t "$workspace_name:explorer" "yazi $explorer_dir"
+    else
+      tmux neww -t "$workspace_name" -n "terminal" &&
+        tmux send-keys -t "$workspace_name:terminal" "cd $workspace" C-m
+    fi
   fi
+
+  tmux neww -t "$workspace_name" -n "explorer" &&
+    tmux send-keys -t "$workspace_name:explorer" "cd $workspace" C-m &&
+    tmux send-keys -t "$workspace_name:explorer" "yazi $explorer_dir"
+
   tmux attach -t "$workspace_name"
 fi
 
-unset -v explorer_dir job_dir job_workspaces personal_workspaces workspace workspace_name
+unset -v explorer_dir job_dirs job_workspaces personal_workspaces workspace workspace_name
