@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 PRETTIER_PLUGINS=(
+  prettier-plugin-astro
   prettier-plugin-css-order
   prettier-plugin-go-template
   prettier-plugin-jsdoc
