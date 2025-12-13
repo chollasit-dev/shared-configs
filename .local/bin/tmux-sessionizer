@@ -51,6 +51,16 @@ else
       tmux neww -t "$workspace_name" -n "bundler" &&
         tmux send-keys -t "$workspace_name:bundler" "cd $workspace && yarn g:watch" C-m
 
+    elif [[ "$workspace" == *"ppe-catalog"* ]]; then
+      tmux neww -t "$workspace_name" -n "frontend" &&
+        tmux send-keys -t "$workspace_name:frontend" "cd $workspace/app && nvim" C-m
+
+      tmux neww -t "$workspace_name" -n "terminal" &&
+        tmux send-keys -t "$workspace_name:terminal" "cd $workspace/app" C-m
+
+      tmux neww -t "$workspace_name" -n "fe-server" &&
+        tmux send-keys -t "$workspace_name:fe-server" "cd $workspace/app/ && pnpm dev" C-m
+
     else
       tmux neww -t "$workspace_name" -n "terminal" &&
         tmux send-keys -t "$workspace_name:terminal" "cd $workspace" C-m
