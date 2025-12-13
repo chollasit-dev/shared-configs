@@ -1,4 +1,5 @@
 {
+  "$schema": "https://www.schemastore.org/prettierrc.json",
   "arrowParens": "always",
   "bracketSameLine": false,
   "bracketSpacing": true,
@@ -36,6 +37,8 @@
   "singleAttributePerLine": false,
   "singleQuote": true,
   "tabWidth": 2,
+  "tailwindAttributes": ["tw"],
+  "tailwindFunctions": ["cn", "tw"],
   "trailingComma": "all",
   "useTabs": false,
   "vueIndentScriptAndStyle": true
