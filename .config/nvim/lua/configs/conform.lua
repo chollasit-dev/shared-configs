@@ -9,6 +9,7 @@ local opts = {
     gitconfig = { "shfmt" },
     go = { "goimports-reviser", "golines" },
     haskell = { "fourmolu" },
+    hcl = { "hcl" },
     html = { "prettierd" },
     javascript = { "prettierd" },
     javascriptreact = { "prettierd" },
