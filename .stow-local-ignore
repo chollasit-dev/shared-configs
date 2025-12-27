@@ -26,4 +26,6 @@ _darcs
 ^/scripts/update
 ^/secrets    # Shhh!...
 
+^/unstow/
+
 .*.md

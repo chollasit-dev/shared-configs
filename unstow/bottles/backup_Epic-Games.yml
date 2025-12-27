@@ -1,0 +1,125 @@
+Arch: win64
+CompatData: ''
+Creation_Date: '2025-12-23 10:44:48.394276'
+Custom_Path: false
+DLL_Overrides: {}
+DXVK: dxvk-2.7.1-7-21eb344
+Environment: Gaming
+Environment_Variables: {}
+External_Programs:
+    f8451257-e4a3-4bf9-963e-77c2313443c2:
+        arguments: -opengl -SkipBuildPatchPrereq
+        executable: EpicGamesLauncher.exe
+        id: f8451257-e4a3-4bf9-963e-77c2313443c2
+        name: Epic Games Store
+        path: C:\Program Files (x86)\Epic Games\Launcher\Portal\Binaries\Win32\EpicGamesLauncher.exe
+Inherited_Environment_Variables:
+- DBUS_SESSION_BUS_ADDRESS
+- DISPLAY
+- HOME
+- LANG
+- LC_ALL
+- LC_CTYPE
+- LC_MESSAGES
+- PATH
+- PULSE_SERVER
+- TERM
+- TZ
+- USER
+- WAYLAND_DISPLAY
+- XAUTHORITY
+- XDG_RUNTIME_DIR
+Installed_Dependencies:
+- d3dx9
+- msls31
+- arial32
+- times32
+- courie32
+- d3dcompiler_43
+- d3dcompiler_47
+- mono
+- gecko
+- riched20
+- andale32
+- arialb32
+- comic32
+- georgi32
+- impact32
+- tahoma32
+- trebuc32
+- verdan32
+- webdin32
+- allfonts
+- vcredist2015
+- cjkfonts
+Language: sys
+LatencyFleX: latencyflex-v0.1.1
+Limit_System_Environment: true
+NVAPI: dxvk-nvapi-v0.9.0
+Name: Epic Games
+Parameters:
+    custom_dpi: 96
+    decorated: false
+    discrete_gpu: true
+    dxvk: true
+    dxvk_nvapi: false
+    fixme_logs: false
+    fsr: true
+    fsr_quality_mode: quality
+    fsr_sharpening_strength: 5
+    fullscreen_capture: false
+    gamemode: true
+    gamescope: false
+    gamescope_borderless: false
+    gamescope_fps: 0
+    gamescope_fps_no_focus: 0
+    gamescope_fullscreen: true
+    gamescope_game_height: 0
+    gamescope_game_width: 0
+    gamescope_scaling: false
+    gamescope_window_height: 0
+    gamescope_window_width: 0
+    latencyflex: false
+    mangohud: false
+    mangohud_display_on_game_start: true
+    mouse_warp: true
+    obsvkc: false
+    pulseaudio_latency: false
+    renderer: vulkan
+    sandbox: false
+    sync: wine
+    take_focus: false
+    use_be_runtime: true
+    use_eac_runtime: true
+    use_runtime: false
+    use_steam_runtime: false
+    versioning_automatic: false
+    versioning_compression: false
+    versioning_exclusion_patterns: false
+    virtual_desktop: false
+    virtual_desktop_res: 1920x1080
+    vkbasalt: false
+    vkd3d: true
+    vmtouch: true
+    vmtouch_cache_cwd: false
+    wayland: true
+    winebridge: true
+Path: Epic-Games
+Registry_Rules: []
+Runner: sys-wine-10.0
+RunnerPath: ''
+Sandbox:
+    share_net: false
+    share_sound: false
+State: 0
+Uninstallers: {}
+Update_Date: '2025-12-27 19:45:44.010654'
+VKD3D: vkd3d-proton-3.0
+Versioning: false
+Versioning_Exclusion_Patterns: []
+Windows: win11
+Winebridge: false
+WorkingDir: ''
+data: {}
+run_in_terminal: false
+session_arguments: ''
