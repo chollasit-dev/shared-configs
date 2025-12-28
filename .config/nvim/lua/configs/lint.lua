@@ -10,7 +10,7 @@ lint.linters_by_ft = {
   markdown = { "markdownlint-cli2" },
   python = { "ruff" },
   sh = { "shellcheck" },
-  sql = { "sqlfluff" },
+  sql = { "sqruff" },
   zsh = { "shellcheck" },
 }
 

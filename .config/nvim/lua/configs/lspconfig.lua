@@ -18,8 +18,6 @@ local servers = {
   "nil_ls",
   "nixd",
   "ruff",
-  "sqlls",
-  "sqls",
   "tailwindcss",
   "taplo",
   "ts_ls",
