@@ -3,7 +3,6 @@
 PRETTIER_PLUGINS=(
   prettier-plugin-astro
   prettier-plugin-css-order
-  prettier-plugin-go-template
   prettier-plugin-jsdoc
   prettier-plugin-organize-attributes
   prettier-plugin-organize-imports
