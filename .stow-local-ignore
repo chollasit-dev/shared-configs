@@ -1,4 +1,3 @@
-# Default built-in
 RCS
 .+,v
 
@@ -21,11 +20,11 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
-# Custom
+
 ^/scripts/init
 ^/scripts/update
-^/secrets    # Shhh!...
+^/secrets
 
-^/unstow/
+^/unstow
 
 .*.md
