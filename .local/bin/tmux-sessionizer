@@ -3,7 +3,7 @@
 set -eu -o pipefail
 
 if ! command -v fzf &>/dev/null; then
-  echo "fzf not found, install fzf first" && exit 1
+  echo "fzf not found, aborting..." && exit 1
 fi
 
 explorer_dir="$HOME/Downloads/"
@@ -40,7 +40,8 @@ else
   tmux renamew -t 1 "nvim" &&
     tmux send-keys -t "$workspace_name:nvim" "cd $workspace && nvim" C-m
 
-  if [ "$is_job" = "y" ] || [ "$is_job" = "Y" ]; then
+  case "$is_job" in
+  "y" | "Y")
     if [[ "$workspace" == *"level11"*"pman"* ]]; then
       tmux neww -t "$workspace_name" -n "server" &&
         tmux send-keys -t "$workspace_name:server" "cd $workspace/packages/backend/level11-server/ && make pulse" C-m
@@ -50,22 +51,12 @@ else
 
       tmux neww -t "$workspace_name" -n "bundler" &&
         tmux send-keys -t "$workspace_name:bundler" "cd $workspace && yarn g:watch" C-m
-
-    elif [[ "$workspace" == *"ppe-catalog"* ]]; then
-      tmux neww -t "$workspace_name" -n "frontend" &&
-        tmux send-keys -t "$workspace_name:frontend" "cd $workspace/app && nvim" C-m
-
-      tmux neww -t "$workspace_name" -n "terminal" &&
-        tmux send-keys -t "$workspace_name:terminal" "cd $workspace/app" C-m
-
-      tmux neww -t "$workspace_name" -n "fe-server" &&
-        tmux send-keys -t "$workspace_name:fe-server" "cd $workspace/app/ && pnpm dev" C-m
-
     else
       tmux neww -t "$workspace_name" -n "terminal" &&
         tmux send-keys -t "$workspace_name:terminal" "cd $workspace" C-m
     fi
-  fi
+    ;;
+  esac
 
   tmux neww -t "$workspace_name" -n "explorer" &&
     tmux send-keys -t "$workspace_name:explorer" "cd $workspace" C-m &&
@@ -73,5 +64,3 @@ else
 
   tmux attach -t "$workspace_name"
 fi
-
-unset -v explorer_dir job_dirs job_workspaces personal_workspaces workspace workspace_name
