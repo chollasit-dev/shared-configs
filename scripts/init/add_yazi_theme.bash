@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-if ! command -v yazi ya &>/dev/null; then
-  echo "yazi not found, install yazi first" && exit 1
-fi
+set -eu -o pipefail
 
-ya pkg add yazi-rs/flavors:catppuccin-mocha
+ya pkg add yazi-rs/flavors:catppuccin-mocha 2>/dev/null

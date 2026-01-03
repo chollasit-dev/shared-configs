@@ -1,23 +1,5 @@
-# shellcheck disable=SC2148
-
-#################
-### Pre-start ###
-#################
-
-# shellcheck disable=SC1091
-# shellcheck disable=SC2034
-
 setopt extendedglob
 setopt LIST_TYPES
-
-# Might needed if come from Bash.
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
-# Go
-export PATH="$HOME/go/bin:$HOME/bin:/usr/local/go/bin:$PATH"
-# Haskell
-export PATH="$HOME/.ghcup/bin:$PATH"
-# Oh My Zsh
-export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME=robbyrussell
 # `echo $RANDOM_THEME` to check the current random theme.
@@ -58,13 +40,10 @@ HIST_STAMPS="yyyy-mm-dd"
 # Standard plugins `$ZSH/plugins/`
 # Custom plugins `$ZSH_CUSTOM/plugins/`
 plugins=(
-  # common
   "alias-finder"
   "catimg"
   "colored-man-pages"
-  "command-not-found" # suggested packages to install when cmd not found
-  "copybuffer"        # `ctrl + o` copy to clipboard
-  # TODO: Check
+  "copybuffer" # `ctrl + o` copy to clipboard
   "copyfile"
   "copypath"
   "dircycle"
@@ -88,50 +67,41 @@ plugins=(
   "sudo"
   "systemadmin"
   "systemd"
-  "taskwarrior"
   "urltools"
   "zsh-interactive-cd"
   "zsh-navigation-tools"
 )
 
-#############
-### Start ###
-#############
+# May needed if migrate from Bash
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
+# Go
+export PATH="$HOME/go/bin:$HOME/bin:/usr/local/go/bin:$PATH"
+# Haskell
+export PATH="$HOME/.ghcup/bin:$PATH"
 
+# Oh My Zsh
+export ZSH="$HOME/.oh-my-zsh"
 source "$ZSH/oh-my-zsh.sh"
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-##############
-### Custom ###
-##############
+export MANPATH="/usr/local/man:$MANPATH"
 
 export EDITOR='nvim'
 
 _invoke_script() {
   # shellcheck source=/dev/null
   source "$1"
-  filename=$(basename "$1")
-
+  local FILENAME="$(basename "$1")"
   if [ $? -eq 0 ]; then
-    print "${fg[green]}Run $filename${reset_color}"
+    print "${fg[green]}Run $FILENAME${reset_color}"
   else
-    if [ "$filename" = "taskwarrior.sh" ]; then
-      print "${fg[green]}Run $filename${reset_color}"
-      echo "No task left! Happy coding!!"
-    else
-      print "${fg[red]}Failed to run $filename${reset_color}"
-    fi
+    print "${fg[red]}Failed to run $FILENAME${reset_color}"
   fi
-
-  unset -v filename
+  unset -v FILENAME
 }
 
 if [ -d "$HOME/scripts" ]; then
   for script in "$HOME/scripts"/**/*; do
-    if [ -f "$script" ]; then
-      _invoke_script "$script"
-    fi
+    [ -f "$script" ] && _invoke_script "$script"
   done
 fi
 
