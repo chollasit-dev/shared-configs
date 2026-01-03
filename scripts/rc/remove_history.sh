@@ -16,9 +16,8 @@ HISTORY_FILES=(
 )
 
 for file in "${HISTORY_FILES[@]}"; do
-  filename=$(basename "$file")
-  [ -f "$file" ] && rm -f "$file" && echo "Remove $filename"
-  unset -v filename
+  FILENAME="$(basename "$file")"
+  [ -f "$file" ] && rm -f "$file" && echo "Remove $FILENAME"
 done
 
-unset -v HISTORY_FILES
+unset -v file FILENAME HISTORY_FILES

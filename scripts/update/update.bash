@@ -23,3 +23,6 @@ rm pnpm-lock.yaml yarn.lock package-lock.json pnpm-workspace.yaml &>/dev/null
 pnpm up -gL
 pnpm approve-builds
 pnpm approve-builds -g
+
+UPDATE_YAZI_THEME="$HOME/shared-configs/scripts/update/update_yazi_theme.zsh"
+[ -f "$UPDATE_YAZI_THEME" ] && "$UPDATE_YAZI_THEME"
