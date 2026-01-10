@@ -30,4 +30,5 @@ _darcs
 ^/unstow
 
 
+.editorconfig
 .*.md
