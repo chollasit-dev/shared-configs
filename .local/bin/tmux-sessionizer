@@ -6,6 +6,12 @@ if ! command -v fzf &>/dev/null; then
   echo "fzf not found, aborting..." && exit 1
 fi
 
+EDITOR="nvim"
+EDITOR_CMD="$EDITOR"
+
+AI="opencode"
+AI_CMD="$AI"
+
 explorer_dir="$HOME/Downloads/"
 
 job_dirs="$(find "$HOME/projects/jobs/level11/pman/" -maxdepth 1 -type d)"
@@ -17,18 +23,26 @@ personal_workspaces=$(find "$HOME/projects/personal/" -maxdepth 1 -type d)
 personal_workspaces="$personal_workspaces
 $HOME/Documents/"
 
-read -r -p "Are you working now? [y/n] " is_job
-case "$is_job" in
-"y" | "Y")
-  workspace=$(echo "${job_workspaces[@]}" | fzf)
-  ;;
-"n" | "N")
-  workspace=$(echo "${personal_workspaces[@]}" | fzf)
-  ;;
-*)
-  echo "Invalid option"
-  ;;
-esac
+PS3="Select workspace type you wish to use: "
+select workspace_type in "jobs" "home" "personal"; do
+  case "$workspace_type" in
+  "jobs")
+    workspace=$(echo "${job_workspaces[@]}" | fzf)
+    break
+    ;;
+  "home")
+    workspace="$HOME/Documents/"
+    break
+    ;;
+  "personal")
+    workspace=$(echo "${personal_workspaces[@]}" | fzf)
+    break
+    ;;
+  *)
+    echo "Invalid option"
+    ;;
+  esac
+done
 
 read -p "Input workspace name (or leave empty to auto-set): " ws_name
 workspace_name=${ws_name:=$(basename "$workspace" | sed "s/-//g" | cut -c 1-8)}
@@ -37,11 +51,11 @@ if tmux has-session -t "$workspace_name" 2>/dev/null; then
 else
   tmux new -ds "$workspace_name"
 
-  tmux renamew -t 1 "nvim" &&
-    tmux send-keys -t "$workspace_name:nvim" "cd $workspace && nvim" C-m
+  tmux renamew -t 1 "$EDITOR" &&
+    tmux send-keys -t "$workspace_name:$EDITOR" "cd $workspace && $EDITOR_CMD" C-m
 
-  case "$is_job" in
-  "y" | "Y")
+  case "$workspace_type" in
+  "jobs")
     if [[ "$workspace" == *"level11"*"pman"* ]]; then
       tmux neww -t "$workspace_name" -n "server" &&
         tmux send-keys -t "$workspace_name:server" "cd $workspace/packages/backend/level11-server/ && make pulse" C-m
@@ -56,7 +70,17 @@ else
         tmux send-keys -t "$workspace_name:terminal" "cd $workspace" C-m
     fi
     ;;
+  "home")
+    tmux neww -t "$workspace_name" -n "shared-configs" &&
+      tmux send-keys -t "$workspace_name:shared-configs" "cd $HOME/shared-configs/ && $EDITOR_CMD" C-m
+
+    tmux neww -t "$workspace_name" -n "dotfiles-btw" &&
+      tmux send-keys -t "$workspace_name:dotfiles-btw" "cd $HOME/dotfiles-arch/ || cd $HOME/dotfiles-btw/ && $EDITOR_CMD" C-m
+    ;;
   esac
+
+  tmux neww -t "$workspace_name" -n "$AI" &&
+    tmux send-keys -t "$workspace_name:$AI" "cd $workspace && $AI_CMD" C-m
 
   tmux neww -t "$workspace_name" -n "explorer" &&
     tmux send-keys -t "$workspace_name:explorer" "cd $workspace" C-m &&
