@@ -21,10 +21,13 @@ _darcs
 ^/COPYING
 
 
+^/.config/nvim-old-nvchad
+
 ^/scripts/init
 ^/scripts/update
 ^/secrets
 
 ^/unstow
+
 
 .*.md
