@@ -11,6 +11,9 @@ if command -v go &>/dev/null; then
   esac
 fi
 
+UPDATE_NIX_SCRIPTS="$HOME/shared-configs/scripts/update/update_nix.bash"
+[ -f "$UPDATE_NIX_SCRIPTS" ] && "$UPDATE_NIX_SCRIPTS"
+
 UPDATE_NODE_SCRIPTS="$HOME/shared-configs/scripts/update/update_fnm.zsh"
 [ -f "$UPDATE_NODE_SCRIPTS" ] && "$UPDATE_NODE_SCRIPTS"
 
