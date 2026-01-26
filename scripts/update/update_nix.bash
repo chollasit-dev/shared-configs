@@ -8,7 +8,7 @@ INSTALLED_VERSION="$(nix --version | sed 's/[^0-9.]//g')"
 
 [ "$RELEASE_VERSION" != "$INSTALLED_VERSION" ] ||
   {
-    echo "[Nix] Already at the latest release version" && exit 1
+    echo "[Nix] Already at the latest release version" && exit
   }
 
 sudo rm -rf "/nix" "$HOME/.nix-channels" "$HOME/.nix-defexpr" "$HOME/.nix-profile" &&
