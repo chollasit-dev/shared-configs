@@ -40,36 +40,36 @@ HIST_STAMPS="yyyy-mm-dd"
 # Standard plugins `$ZSH/plugins/`
 # Custom plugins `$ZSH_CUSTOM/plugins/`
 plugins=(
-  "alias-finder"
-  "catimg"
-  "colored-man-pages"
-  "copybuffer" # `ctrl + o` copy to clipboard
-  "copyfile"
-  "copypath"
-  "dircycle"
-  "dirpersist"
-  "emoji"
-  "emoji-clock"
-  "fancy-ctrl-z"
-  "fzf"
-  "git-commit"
-  "gitignore"
-  "globalias"
-  "history"
-  "jira"
-  "mongo-atlas"
-  "mongocli"
-  "ng"
-  "otp"
-  "pm2"
-  "safe-paste"
-  "shell-proxy"
-  "sudo"
-  "systemadmin"
-  "systemd"
-  "urltools"
-  "zsh-interactive-cd"
-  "zsh-navigation-tools"
+	"alias-finder"
+	"catimg"
+	"colored-man-pages"
+	"copybuffer" # `ctrl + o` copy to clipboard
+	"copyfile"
+	"copypath"
+	"dircycle"
+	"dirpersist"
+	"emoji"
+	"emoji-clock"
+	"fancy-ctrl-z"
+	"fzf"
+	"git-commit"
+	"gitignore"
+	"globalias"
+	"history"
+	"jira"
+	"mongo-atlas"
+	"mongocli"
+	"ng"
+	"otp"
+	"pm2"
+	"safe-paste"
+	"shell-proxy"
+	"sudo"
+	"systemadmin"
+	"systemd"
+	"urltools"
+	"zsh-interactive-cd"
+	"zsh-navigation-tools"
 )
 
 # May needed if migrate from Bash
@@ -88,21 +88,21 @@ export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR='nvim'
 
 _invoke_script() {
-  # shellcheck source=/dev/null
-  source "$1"
-  local FILENAME="$(basename "$1")"
-  if [ $? -eq 0 ]; then
-    print "${fg[green]}Run $FILENAME${reset_color}"
-  else
-    print "${fg[red]}Failed to run $FILENAME${reset_color}"
-  fi
-  unset -v FILENAME
+	# shellcheck source=/dev/null
+	source "$1"
+	local FILENAME="$(basename "$1")"
+	if [ $? -eq 0 ]; then
+		print "${fg[green]}Run $FILENAME${reset_color}"
+	else
+		print "${fg[red]}Failed to run $FILENAME${reset_color}"
+	fi
+	unset -v FILENAME
 }
 
 if [ -d "$HOME/scripts" ]; then
-  for script in "$HOME/scripts"/**/*; do
-    [ -f "$script" ] && _invoke_script "$script"
-  done
+	for script in "$HOME/scripts"/**/*; do
+		[ -f "$script" ] && _invoke_script "$script"
+	done
 fi
 
 # WARN: Always last.
