@@ -2,9 +2,19 @@
 
 set -eu -o pipefail
 
+if command -v bat &>/dev/null; then
+  read -p "Should update Bat Catppuccin themes? [y/n] " -r update_bat_theme_opts
+  case $update_bat_theme_opts in
+  "y" | "Y")
+    "$HOME/shared-configs/scripts/update/update_bat_theme.bash"
+    bat cache --build
+    ;;
+  esac
+fi
+
 if command -v go &>/dev/null; then
-  read -p "Should clean Go cache? [y/n] " -r option
-  case $option in
+  read -p "Should clean Go cache? [y/n] " -r update_go_opts
+  case $update_go_opts in
   "y" | "Y")
     go clean -cache -modcache
     ;;
