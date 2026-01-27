@@ -1,0 +1,23 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "plan",
+  "instructions": ["instructions.md"],
+  "provider": {
+    "ollama": {
+      "models": {
+        "qwen3-vl:2b": {
+          "name": "qwen3-vl:2b"
+        }
+      },
+      "name": "Ollama (local)",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      }
+    }
+  },
+  "theme": "catppuccin",
+  "watcher": {
+    "ignore": ["*.env.*"]
+  }
+}
