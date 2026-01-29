@@ -24,7 +24,7 @@ _darcs
 ^/.config/nvim-old.*
 ^/nix
 ^/scripts/install
-^/scripts/update
+^/scripts/upgrade
 ^/secrets
 ^/unstow
 
