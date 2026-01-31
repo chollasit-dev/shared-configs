@@ -23,6 +23,7 @@ _darcs
 
 ^/.config/nvim-old.*
 ^/nix
+^/scripts/.*.bash
 ^/scripts/install
 ^/scripts/upgrade
 ^/secrets
