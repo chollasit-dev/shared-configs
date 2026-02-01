@@ -16,9 +16,13 @@ _darcs
 .+~          # emacs backup files
 \#.*\#       # emacs autosave files
 
-^/README.*
-^/LICENSE.*
-^/COPYING
+README.*
+LICENSE.*
+COPYING
+
+\.editorconfig
+\.github
+commit-guide.*
 
 
 ^/.config/nvim-old.*
@@ -29,6 +33,3 @@ _darcs
 ^/secrets
 ^/unstow
 
-
-.editorconfig
-.*.md
