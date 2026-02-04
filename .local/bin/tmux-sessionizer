@@ -3,7 +3,7 @@
 set -eu -o pipefail
 
 if ! command -v fzf &>/dev/null; then
-	echo "fzf not found, aborting..." && exit 1
+  echo "fzf not found, aborting..." && exit 1
 fi
 
 EDITOR="nvim"
@@ -25,72 +25,72 @@ $HOME/Documents/"
 
 PS3="Select workspace type you wish to use: "
 select workspace_type in "jobs" "home" "personal"; do
-	case "$workspace_type" in
-	"jobs")
-		workspace=$(echo "${job_workspaces[@]}" | fzf)
-		break
-		;;
-	"home")
-		workspace="$HOME/Documents/"
-		break
-		;;
-	"personal")
-		workspace=$(echo "${personal_workspaces[@]}" | fzf)
-		break
-		;;
-	*)
-		echo "Invalid option"
-		;;
-	esac
+  case "$workspace_type" in
+  "jobs")
+    workspace=$(echo "${job_workspaces[@]}" | fzf)
+    break
+    ;;
+  "home")
+    workspace="$HOME/Documents/"
+    break
+    ;;
+  "personal")
+    workspace=$(echo "${personal_workspaces[@]}" | fzf)
+    break
+    ;;
+  *)
+    echo "Invalid option"
+    ;;
+  esac
 done
 
 if [ "$workspace_type" = "home" ]; then
-	workspace_name="$workspace_type"
+  workspace_name="$workspace_type"
 else
-	read -p "Input workspace name (or leave empty to auto-set): " ws_name
-	workspace_name=${ws_name:=$(basename "$workspace" | sed "s/-//g" | cut -c 1-8)}
+  read -p "Input workspace name (or leave empty to auto-set): " ws_name
+  workspace_name=${ws_name:=$(basename "$workspace" | sed "s/-//g" | cut -c 1-8)}
 fi
 
 if tmux has-session -t "$workspace_name" 2>/dev/null; then
-	tmux attach -t "$workspace_name"
+  tmux attach -t "$workspace_name"
 else
-	tmux new -ds "$workspace_name"
+  tmux new -ds "$workspace_name"
 
-	tmux renamew -t 1 "$EDITOR" &&
-		tmux send-keys -t "$workspace_name:$EDITOR" "cd $workspace && $EDITOR_CMD" C-m
+  tmux renamew -t 1 "$EDITOR" &&
+    tmux send-keys -t "$workspace_name:$EDITOR" "cd $workspace && $EDITOR_CMD" C-m
 
-	case "$workspace_type" in
-	"jobs")
-		if [[ "$workspace" == *"level11"*"pman"* ]]; then
-			tmux neww -t "$workspace_name" -n "be" &&
-				tmux send-keys -t "$workspace_name:be" "cd $workspace/packages/backend/level11-server/ && make pulse" C-m
+  case "$workspace_type" in
+  "jobs")
+    if [[ "$workspace" == *"level11"*"pman"* ]]; then
+      tmux neww -t "$workspace_name" -n "be" &&
+        tmux send-keys -t "$workspace_name:be" "cd $workspace/packages/backend/level11-server/ && make pulse" C-m
 
-			tmux neww -t "$workspace_name" -n "fe" &&
-				tmux send-keys -t "$workspace_name:fe" "cd $workspace && yarn dev" C-m
+      tmux neww -t "$workspace_name" -n "fe" &&
+        tmux send-keys -t "$workspace_name:fe" "cd $workspace && yarn dev" C-m
 
-			tmux neww -t "$workspace_name" -n "fe-bundler" &&
-				tmux send-keys -t "$workspace_name:fe-bundler" "cd $workspace && yarn g:watch" C-m
-		else
-			tmux neww -t "$workspace_name" -n "term" &&
-				tmux send-keys -t "$workspace_name:term" "cd $workspace" C-m
-		fi
-		;;
+      tmux neww -t "$workspace_name" -n "fe-bundler" &&
+        tmux send-keys -t "$workspace_name:fe-bundler" "cd $workspace && yarn watch" C-m
+    else
+      tmux neww -t "$workspace_name" -n "term" &&
+        tmux send-keys -t "$workspace_name:term" "cd $workspace" C-m
+    fi
+    ;;
 
-	"home")
-		tmux neww -t "$workspace_name" -n "shared" &&
-			tmux send-keys -t "$workspace_name:shared" "cd $HOME/shared-configs/ && $EDITOR_CMD" C-m
+  "home")
+    tmux neww -t "$workspace_name" -n "shared" &&
+      tmux send-keys -t "$workspace_name:shared" "cd $HOME/shared-configs/ && $EDITOR_CMD" C-m
 
-		tmux neww -t "$workspace_name" -n "arch" &&
-			tmux send-keys -t "$workspace_name:arch" "cd $HOME/dotfiles-arch/ || cd $HOME/dotfiles-btw/ && $EDITOR_CMD" C-m
-		;;
-	esac
+    tmux neww -t "$workspace_name" -n "arch" &&
+      tmux send-keys -t "$workspace_name:arch" "cd $HOME/dotfiles-arch/ || cd $HOME/dotfiles-btw/ && $EDITOR_CMD" C-m
+    ;;
+  esac
 
-	tmux neww -t "$workspace_name" -n "ai" &&
-		tmux send-keys -t "$workspace_name:ai" "cd $workspace && $AI_CMD" C-m
+  tmux neww -t "$workspace_name" -n "ai" &&
+    tmux send-keys -t "$workspace_name:ai" "cd $workspace && $AI_CMD" C-m
 
-	tmux neww -t "$workspace_name" -n "ex" &&
-		tmux send-keys -t "$workspace_name:ex" "cd $workspace" C-m &&
-		tmux send-keys -t "$workspace_name:ex" "yazi $explorer_dir"
+  tmux neww -t "$workspace_name" -n "ex" &&
+    tmux send-keys -t "$workspace_name:ex" "cd $workspace" C-m &&
+    tmux send-keys -t "$workspace_name:ex" "yazi $explorer_dir"
 
-	tmux attach -t "$workspace_name"
+  tmux attach -t "$workspace_name"
 fi
