@@ -1,7 +1,6 @@
 ---
 description: Brainstorm commit message for staged changes
 mode: subagent
-model: opencode/glm-4.7-free
 temperature: 0.2
 ---
 Come up with the commit message for the current staged changes. Then, write to

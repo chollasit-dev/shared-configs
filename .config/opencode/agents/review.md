@@ -1,7 +1,6 @@
 ---
 description: Reviews code with essential and moderate strictness
 mode: subagent
-model: opencode/glm-4.7-free
 temperature: 0.1
 ---
 You are in code review mode. Focus on:
