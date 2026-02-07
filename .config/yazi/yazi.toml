@@ -3,8 +3,33 @@
 # See also: https://yazi-rs.github.io/docs/resources/
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
+# https://yazi-rs.github.io/docs/configuration/yazi/#open
+
 [mgr]
 show_hidden = true
+
+[opener]
+csv = [{ run = "csvlens %s", block = true, desc = "Open with CSVlens" }]
+xlsx = [
+  { run = "xleak --interactive --horizontal-scroll %s", block = true, desc = "Open with xleak" },
+]
+
+[open]
+prepend_rules = [
+  { url = "*.csv", block = true, use = [
+    "csv",
+    "open",
+  ] },
+  { url = "*.tsv", block = true, use = [
+    "csv",
+    "open",
+  ] },
+  { mime = "application/openxmlformats-officedocument.spreadsheetml.sheet", block = true, use = [
+    "xlsx",
+    "open",
+    "extract",
+  ] },
+]
 
 [preview]
 wrap = "yes"
