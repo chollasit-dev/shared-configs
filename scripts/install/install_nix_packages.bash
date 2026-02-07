@@ -8,13 +8,17 @@ FLAKE_PATH_DIR="$HOME/nix"
 
 [ -d "$FLAKE_PATH_DIR" ] || mkdir -p "$FLAKE_PATH_DIR"
 
-[ -f "$FLAKE_PATH_DIR/flake.nix" ] ||
-  {
-    ln "$HOME/shared-configs/nix/flake.nix" "$FLAKE_PATH_DIR/flake.nix" || {
-      echo "[Nixpkgs] Failed to hard-link Nix flake to $HOME, skip installing packages..." >&2 &&
-        exit
-    }
+[ -f "$FLAKE_PATH_DIR/flake.nix" ] && {
+  rm "$FLAKE_PATH_DIR/flake.nix" || {
+    echo "[Nixpkgs] Failed to remove previous Flake file, skip installing packages..." >&2 &&
+      exit
   }
+}
+
+cp "$HOME/shared-configs/nix/flake.nix" "$FLAKE_PATH_DIR/flake.nix" || {
+  echo "[Nixpkgs] Failed to copy Flake file to $HOME, skip installing packages..." >&2 &&
+    exit
+}
 
 cd "$FLAKE_PATH_DIR"
 
