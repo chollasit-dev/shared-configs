@@ -1,0 +1,10 @@
+# https://github.com/bgreenwell/xleak
+
+[theme]
+default = "Dracula"
+
+[ui]
+max_rows = 100 # non-interactive
+
+[keybindings]
+profile = "vim"

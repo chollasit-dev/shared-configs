@@ -8,12 +8,14 @@
     pkgs = nixpkgs.legacyPackages.${arch};
     tools = with pkgs; [
       cloc
+      csvlens
       dig
       glow
       litecli
       pgcli
       posting
       tig
+      xleak
     ];
   in {
     packages.${arch} = rec {
