@@ -1,7 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "plan",
-  "instructions": ["instructions.md"],
   "plugin": ["@plannotator/opencode@latest"],
   "provider": {
     "ollama": {
@@ -17,7 +16,6 @@
       }
     }
   },
-  "theme": "catppuccin",
   "watcher": {
     "ignore": ["*.env.*"]
   }

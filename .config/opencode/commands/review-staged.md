@@ -1,14 +1,12 @@
 ---
-description: Review the current staged changes
+description: Review the staged changes
 agent: review
+subtask: true
 ---
-Review the current staged changes in the following files.
+# Review the staged changes
 
-Note:
+## Restrictions
 
-- Only files with `M` yellow prefix sign:
-
-!`git status --short`
-
-- Ignore all modified but unstaged
+- Ignore unstaged changes but reminds me that they exists when done copying the
+  commit message to clipboard.
 
