@@ -79,9 +79,10 @@ export PATH="$HOME/go/bin:$HOME/bin:/usr/local/go/bin:$PATH"
 # Haskell
 export PATH="$HOME/.ghcup/bin:$PATH"
 
-# Oh My Zsh
 export ZSH="$HOME/.oh-my-zsh"
 source "$ZSH/oh-my-zsh.sh"
+
+export WINEPREFIX="$HOME/.lineprefix"
 
 export MANPATH="/usr/local/man:$MANPATH"
 
