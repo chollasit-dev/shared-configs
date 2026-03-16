@@ -2,6 +2,7 @@
 bat = "latest"
 btop = "latest"
 carapace = "latest"
+claude = "latest"
 fd = "latest"
 fzf = "latest"
 ghcup = "latest"

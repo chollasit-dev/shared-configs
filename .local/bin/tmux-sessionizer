@@ -77,6 +77,10 @@ else
       tmux neww -t "$workspace_name" -n "tsc" &&
         tmux send-keys -t "$workspace_name:tsc" "cd $workspace" C-m &&
         tmux send-keys -t "$workspace_name:tsc" "yarn watch" C-m
+
+      tmux neww -t "$workspace_name" -n "claude" &&
+        tmux send-keys -t "$workspace_name:claude" "cd $workspace" C-m &&
+        tmux send-keys -t "$workspace_name:claude" "claude" C-m
     else
       tmux neww -t "$workspace_name" -n "term" &&
         tmux send-keys -t "$workspace_name:term" "cd $workspace" C-m
@@ -92,8 +96,10 @@ else
     ;;
   esac
 
-  tmux neww -t "$workspace_name" -n "ai" &&
-    tmux send-keys -t "$workspace_name:ai" "cd $workspace && $AI_CMD" C-m
+  if [[ "$workspace" != *"level11"*"pman"* ]]; then
+    tmux neww -t "$workspace_name" -n "ai" &&
+      tmux send-keys -t "$workspace_name:ai" "cd $workspace && $AI_CMD" C-m
+  fi
 
   if [ "$workspace_type" != "jobs" ]; then
     tmux neww -t "$workspace_name" -n "ex" &&
