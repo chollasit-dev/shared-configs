@@ -1,5 +1,10 @@
 # https://github.com/yazi-rs/flavors/tree/main/catppuccin-mocha.yazi
 
-[flavor]
-dark = "catppuccin-mocha"
-light = "catppuccin-mocha"
+# FIX: after uncomment below, on load:
+# TOML parse error at line 175, column 2                                                                            │
+# { name = "*", fg = "#cdd6f4" },
+# at least one of `url` or `mime` must be specified                                                                 │
+
+# [flavor]
+# dark = "catppuccin-mocha"
+# light = "catppuccin-mocha"

@@ -1,7 +1,10 @@
 # A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 # See also: https://yazi-rs.github.io/docs/resources/
-"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+
+# Taplo LSP schema specification
+#:schema https://yazi-rs.github.io/schemas/yazi.json
+
 
 # https://yazi-rs.github.io/docs/configuration/yazi/#open
 
