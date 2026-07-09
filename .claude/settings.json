@@ -1,5 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "cleanupPeriodDays": 14,
   "permissions": {
     "allow": [
       "Bash(cd *)",
@@ -26,11 +27,21 @@
     ],
     "defaultMode": "acceptEdits"
   },
-  "agentPushNotifEnabled": false,
-  "cleanupPeriodDays": 14,
-  "fileCheckpointingEnabled": false,
-  "inputNeededNotifEnabled": true,
+  "extraKnownMarketplaces": {
+    "plannotator": {
+      "source": {
+        "source": "github",
+        "repo": "backnotprop/plannotator"
+      }
+    }
+  },
   "preferredNotifChannel": "kitty",
+  "fileCheckpointingEnabled": false,
   "remoteControlAtStartup": false,
-  "skipAutoPermissionPrompt": true
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": false,
+  "skipAutoPermissionPrompt": true,
+  "enabledPlugins": {
+    "plannotator@plannotator": true
+  }
 }
