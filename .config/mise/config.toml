@@ -1,6 +1,7 @@
 [tools]
 bat = "latest"
 btop = "latest"
+caddy = "latest"
 carapace = "latest"
 claude = "latest"
 fd = "latest"
