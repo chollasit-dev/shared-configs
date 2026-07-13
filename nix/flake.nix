@@ -12,8 +12,10 @@
       dig
       glow
       litecli
+      nmap
       pgcli
       posting
+      tailscale
       tig
       xleak
     ];
