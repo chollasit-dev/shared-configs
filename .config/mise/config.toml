@@ -1,3 +1,28 @@
+# Taplo LSP schema specification
+#:schema https://mise.en.dev/schema/mise.json
+
+[settings]
+dotfiles.root = "~/shared-configs/"
+dotfiles.default_mode = "symlink"
+
+
+[dotfiles]
+"~/.agents" = { source = "~/shared-configs/.claude", mode = "symlink-each" }
+"~/.claude" = { mode = "symlink-each" }
+"~/.config" = { mode = "symlink-each" }
+"~/.local" = { mode = "symlink-each" }
+"~/.oh-my-zsh" = { mode = "symlink-each" }
+"~/scripts/rc" = { mode = "symlink-each" }
+
+"~/.gitattributes" = {}
+"~/.gitconfig" = {}
+"~/.prettierrc" = {}
+"~/.sqliterc" = {}
+"~/.vimrc" = {}
+"~/.zshrc" = {}
+"~/package.json" = {}
+
+
 [tools]
 bat = "latest"
 btop = "latest"
@@ -35,3 +60,4 @@ zoxide = "latest"
 
 [env]
 MISE_COLOR_THEME = "catppuccin"
+OLLAMA_CONTEXT_LENGTH = "65536"
