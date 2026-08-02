@@ -16,6 +16,7 @@ csv = [{ run = "csvlens %s", block = true, desc = "Open with CSVlens" }]
 xlsx = [
   { run = "xleak --interactive --horizontal-scroll %s", block = true, desc = "Open with xleak" },
 ]
+mpv = [{ run = "mpv --playlist=%S", block = true, desc = "Open with mpv" }]
 
 [open]
 prepend_rules = [
@@ -25,6 +26,14 @@ prepend_rules = [
   ] },
   { url = "*.tsv", block = true, use = [
     "csv",
+    "open",
+  ] },
+  { url = "*.ogg", block = true, use = [
+    "mpv",
+    "play",
+  ] },
+  { url = "*playlist*.txt", block = true, use = [
+    "mpv",
     "open",
   ] },
   { mime = "application/openxmlformats-officedocument.spreadsheetml.sheet", block = true, use = [
