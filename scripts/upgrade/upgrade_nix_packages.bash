@@ -4,21 +4,24 @@ set -eu -o pipefail
 
 # https://nix.dev/manual/nix/latest
 
-INSTALL_NIX_PACKAGES="$HOME/shared-configs/scripts/install/install_nix_packages.bash"
-[ -f "$INSTALL_NIX_PACKAGES" ] || {
-  echo "[Nixpkgs] Upgrade script not found, skip upgrading packages..." >&2 && exit
+FLAKE_PATH_DIR="$HOME/shared-configs/nix"
+PROFILE="nix-1"
+
+cd "$FLAKE_PATH_DIR" || {
+  echo "[Nixpkgs] Failed to change CWD to $FLAKE_PATH_DIR, skip installing packages..." >&2 &&
+    exit
 }
 
-command -v jq &>/dev/null || {
-  echo "[Nixpkgs] Required tool jq not found, skip upgrading packages..." >&2 && exit
-}
-
-INSTALL_PROFILE="nix-1"
-[ "$(nix profile list --json | jq ".elements.\"$INSTALL_PROFILE\"")" != "null" ] &&
-  nix profile remove "$INSTALL_PROFILE"
-
-"$INSTALL_NIX_PACKAGES" || {
-  echo "[Nixpkgs] Failed to upgrade packages" >&2 && exit
+{
+  nix flake update &&
+    nix profile upgrade "$PROFILE" &&
+    nix store gc &&
+    nix store optimise &&
+    nix profile wipe-history
+} || {
+  echo "[Nixpkgs] Failed to upgrade Nix packages" >&2 && exit
 }
 
 echo "[Nixpkgs] upgrade packages successfully"
+
+cd "$HOME"
