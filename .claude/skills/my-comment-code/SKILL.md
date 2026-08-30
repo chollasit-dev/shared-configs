@@ -1,5 +1,5 @@
 ---
-name: comment-style
+name: my-comment-code
 description: Code comment style conventions. Use when handling code comment
 ---
 # Comment Conventions

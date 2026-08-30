@@ -1,5 +1,5 @@
 ---
-name: code-style
+name: my-code-style
 description: >-
   Prefer code style when writing codes. Use when coding/programing
 ---
