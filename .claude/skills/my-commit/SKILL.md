@@ -1,5 +1,5 @@
 ---
-name: commit
+name: my-commit
 description: >-
   Prefer commit message convention. Use when user ask to commit changes or come
   up with a commit message

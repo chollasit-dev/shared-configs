@@ -1,5 +1,5 @@
 ---
-name: open-issue-public
+name: my-open-issue
 description: >-
   Use when user ask to open an issue on GitHub, GitLab, etc., on public or
   open-source project
