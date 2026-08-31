@@ -4,14 +4,20 @@
   "permissions": {
     "allow": [
       "Bash(cd *)",
-      "Bash(gh * diff)",
-      "Bash(gh * diff *)",
-      "Bash(gh * list)",
-      "Bash(gh * list *)",
-      "Bash(gh * view)",
-      "Bash(gh * view *)",
-      "Bash(gh * checks)",
-      "Bash(gh * checks *)",
+      "Bash(gh issue diff)",
+      "Bash(gh issue diff *)",
+      "Bash(gh issue list)",
+      "Bash(gh issue list *)",
+      "Bash(gh issue view)",
+      "Bash(gh issue view *)",
+      "Bash(gh pr checks)",
+      "Bash(gh pr checks *)",
+      "Bash(gh pr diff)",
+      "Bash(gh pr diff *)",
+      "Bash(gh pr list)",
+      "Bash(gh pr list *)",
+      "Bash(gh pr view)",
+      "Bash(gh pr view *)",
       "Bash(gh api *)",
       "Bash(gh status)",
       "Bash(gh run view *)",
@@ -25,7 +31,11 @@
       "Bash(wl-paste *)",
       "Bash(command *)"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "auto"
+  },
+  "model": "sonnet",
+  "enabledPlugins": {
+    "plannotator@plannotator": true
   },
   "extraKnownMarketplaces": {
     "plannotator": {
@@ -35,13 +45,11 @@
       }
     }
   },
+  "effortLevel": "high",
   "preferredNotifChannel": "kitty",
   "fileCheckpointingEnabled": false,
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": false,
-  "skipAutoPermissionPrompt": true,
-  "enabledPlugins": {
-    "plannotator@plannotator": true
-  }
+  "skipAutoPermissionPrompt": true
 }
