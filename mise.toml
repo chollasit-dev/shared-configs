@@ -19,5 +19,6 @@ dotfiles.default_mode = "symlink"
 "~/.prettierrc" = {}
 "~/.sqliterc" = {}
 "~/.vimrc" = {}
+"~/.zshenv" = {}
 "~/.zshrc" = {}
 "~/package.json" = {}
