@@ -14,6 +14,10 @@ comment wouldn't confuse anyone, omit it.
 Never explain _what_ the code does unless it is not a well-named identifier and
 is impossible to rename
 
+Don't write meta/scope-explanation preambles about where or when a note applies
+(e.g. "Applies when...", "If you want this elsewhere, copy this file...") —
+stick to the subject matter itself
+
 ## JS/TS Conventions
 
 Use JSDoc for:
