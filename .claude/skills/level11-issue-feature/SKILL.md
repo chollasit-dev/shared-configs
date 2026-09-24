@@ -14,7 +14,11 @@ Fill the template below. Do not add sections it doesn't list.
 ```md
 ### Objective
 
-<1-2 sentences: what's wanted and why>
+<1-2 sentences: purposes, what's wanted, and why>
+
+### Requested by
+
+<firm-wide, `<company_name>`, etc.>
 
 ### Location
 
@@ -28,6 +32,10 @@ Fill the template below. Do not add sections it doesn't list.
 ### Reference
 
 <screenshot or mockup — only if it adds signal beyond the text above>
+
+### Related Issue/PR
+
+<optional Issue/PR No.>
 ```
 
 ## Conventions
@@ -38,7 +46,5 @@ Fill the template below. Do not add sections it doesn't list.
   or per settings tab — if it needs sub-sections, it's two issues.
 - Skip `Reference` entirely rather than leave a placeholder.
 - Never restate the issue title inside the body.
-- No emoji headers, no decorative dividers (`---`), no bolding every noun.
 - State who asked (client/tenant) as a single trailing line only if it changes
   priority — don't build a "requested for" section around it.
-
