@@ -9,6 +9,7 @@ carapace = "latest"
 claude = "latest"
 fd = "latest"
 fzf = "latest"
+gallery-dl = "latest"
 ghcup = "latest"
 github-cli = "latest"
 golangci-lint = "latest"
@@ -35,6 +36,7 @@ watchexec = "latest"
 yarn = "latest"
 yazi = "latest"
 yq = "latest"
+yt-dlp = { version = "latest", rename_exe = "yt-dlp" }
 zoxide = "latest"
 
 [env]
