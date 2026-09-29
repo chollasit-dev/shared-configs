@@ -1,0 +1,3 @@
+--audio-format opus
+
+--output ~/Downloads/audio/%(title)s.%(ext)s
