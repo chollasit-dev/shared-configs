@@ -1,8 +1,8 @@
 ---
-name: level11-frontend-conventions
+name: level11-convention-frontend
 description: >-
-  Level11 conventions for frontend codebase. Use when working with Level11
-  frontend part
+  Conventions for Level11 frontend codebase. Use when working with Level11
+  frontend codebase.
 ---
 # Level11 Frontend Conventions
 

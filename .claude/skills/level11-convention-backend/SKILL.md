@@ -1,8 +1,8 @@
 ---
-name: level11-backend-conventions
+name: level11-convention-backend
 description: >-
-  Level11 conventions for backend codebase. Use when working with Level11
-  backend part
+  Conventions for Level11 backend codebase. Use when working with Level11
+  backend codebase.
 ---
 # Level11 Backend Conventions
 
