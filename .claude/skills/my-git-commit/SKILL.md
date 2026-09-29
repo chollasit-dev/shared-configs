@@ -1,13 +1,18 @@
 ---
-name: my-commit
+name: my-git-commit
 description: >-
-  Prefer commit message convention. Use when user ask to commit changes or come
-  up with a commit message
-argument-hint: scope
+  Prefer commit message style. Use when user asks to commit changes or draft
+  commit message.
+arguments:
+  - scope
+  - format
+argument-hint:
+  - local|stage|etc(scope)
+  - conventional|nil|etc(format)
 ---
-# Instructions
+# My Git Commit
 
-Commit changes in the following scope: $ARGUMENTS.
+Commit $scope, in based on $format style
 
 ## Conventions
 
