@@ -4,6 +4,7 @@ description: >-
   Skeletal template for feature/backlog issue. Use when user asks to write,
   draft, or open a feature/backlog issue.
 argument-hint: summary of the feature
+disable-model-invocation: true
 ---
 # Instructions
 
