@@ -1,14 +1,14 @@
 ---
 name: my-open-issue
 description: >-
-  Use when user ask to open an issue on GitHub, GitLab, etc., on public or
-  open-source project
+  Template for issue. Use when user asks to open an issue on GitHub, GitLab,
+  etc.
 arguments:
   - platform
   - template
 argument-hint:
-  - 'platform: github, gitlab, etc.'
-  - 'template: none (fallback in SKILL.md), exists'
+  - github|gitlab|etc(platform)
+  - <filepath>|nil(template)
 disable-model-invocation: true
 ---
 # Instructions
@@ -22,10 +22,10 @@ Prompt the user if not exists.
 
 ## Issue body
 
-If $template == exists, the issue body pattern should matches the existing
-issues
+If $template is a file path, the issue body should follow the template in that
+file
 
-otherwise ($template == none), the issue body should be as the following
+otherwise ($template == nil), the issue body should be as the following
 
 ```md
 ### Issue type
