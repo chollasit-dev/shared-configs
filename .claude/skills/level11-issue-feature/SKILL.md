@@ -1,8 +1,8 @@
 ---
 name: level11-issue-feature
 description: >-
-  Skeletal template for writing a concise feature/backlog issue body. Use when
-  the user asks to write, draft, or open a feature request / backlog issue.
+  Skeletal template for feature/backlog issue. Use when user asks to write,
+  draft, or open a feature/backlog issue.
 argument-hint: summary of the feature
 ---
 # Instructions

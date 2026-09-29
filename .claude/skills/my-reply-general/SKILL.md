@@ -1,6 +1,6 @@
 ---
 name: my-reply-general
-description: Use when user want the reply in the general style
+description: Prefer reply style for general answer
 disable-model-invocation: true
 ---
 # Instructions
