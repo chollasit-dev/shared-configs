@@ -4,6 +4,7 @@ description: >-
   Skeletal template for bug issue. Use when user asks to write, draft, or open
   a bug report issue.
 argument-hint: summary of the bug
+disable-model-invocation: true
 ---
 # Instructions
 
