@@ -1,6 +1,8 @@
 ---
-name: my-comment-code
-description: Code comment style conventions. Use when handling code comment
+name: my-comment-code-ts
+description: >-
+  Prefer TypeScript code comment style. Use when writing comments in
+  TypeScript codebase.
 ---
 # Comment Conventions
 
@@ -17,6 +19,8 @@ is impossible to rename
 Don't write meta/scope-explanation preambles about where or when a note applies
 (e.g. "Applies when...", "If you want this elsewhere, copy this file...") —
 stick to the subject matter itself
+
+When working
 
 ## JS/TS Conventions
 
@@ -55,6 +59,6 @@ export function parseDuration(input: string): number { ... }
 Example 2 (If the description is tight and can fits in a single line)
 
 ```ts
-/** Parses an ISO-8601 duration string into milliseconds. */
+/** parseDuration parses an ISO-8601 duration string into milliseconds. */
 export function parseDuration(input: string): number { ... }
 ```
