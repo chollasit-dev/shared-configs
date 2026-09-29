@@ -1,8 +1,8 @@
 ---
 name: level11-issue-bug
 description: >-
-  Skeletal template for writing a concise bug issue body. Use when the user asks
-  to write, draft, or open a bug report / bug issue.
+  Skeletal template for bug issue. Use when user asks to write, draft, or open
+  a bug report issue.
 argument-hint: summary of the bug
 ---
 # Instructions

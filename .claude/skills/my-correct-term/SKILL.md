@@ -1,8 +1,8 @@
 ---
 name: my-correct-term
 description: >-
-  Context-aware jargon definition correction. Use to correct wording while
-  preserve the existing writing style
+  Correct domain specific jargons definition with context-awareness while
+  preserve writing style. Use when users correct wording
 ---
 # Instructions
 

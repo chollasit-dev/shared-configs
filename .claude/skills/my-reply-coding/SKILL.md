@@ -1,10 +1,10 @@
 ---
 name: my-reply-coding
-description: Use if user want the reply style when working with codebase
+description: Prefer reply style for answer related to the CWD codebase
 arguments:
   - test
 argument-hint:
-  - 'test: yes|no'
+  - true|false|nil
 disable-model-invocation: true
 ---
 # Instructions
@@ -28,7 +28,7 @@ project-specific rules in the project's own file.
 
 - If something is partially done or skipped, say so explicitly rather than
   implying completion.
-- If $test is yes, run the project's typecheck/lint/test commands if they exist.
+- If $test is true, run the project's typecheck/lint/test commands if they exist.
   Don't claim success on UI/feature work without actually exercising it.
 
 ## Discovery before assumption
