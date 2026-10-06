@@ -13,28 +13,29 @@ show_hidden = true
 
 [opener]
 csv = [{ run = "csvlens %s", block = true, desc = "Open with CSVlens" }]
+mpv_audio = [
+  { run = "mpv --no-video %s", block = true, desc = "Open audio with mpv" },
+]
+mpv_playlist = [
+  { run = "mpv --playlist=%S", block = true, desc = "Open playlist with mpv" },
+]
 xlsx = [
   { run = "xleak --interactive --horizontal-scroll %s", block = true, desc = "Open with xleak" },
 ]
-mpv = [{ run = "mpv --playlist=%S", block = true, desc = "Open with mpv" }]
 
 [open]
 prepend_rules = [
-  { url = "*.csv", block = true, use = [
+  { url = "*.{csv,tsv}", block = true, use = [
     "csv",
     "open",
   ] },
-  { url = "*.tsv", block = true, use = [
-    "csv",
-    "open",
-  ] },
-  { url = "*.ogg", block = true, use = [
-    "mpv",
+  { url = "*.{aac,aiff,aiff,flac,m4a,mp3,ogg,opus,wav,webm}", block = true, use = [
+    "mpv_audio",
     "play",
   ] },
   { url = "*playlist*.txt", block = true, use = [
-    "mpv",
-    "open",
+    "mpv_playlist",
+    "edit",
   ] },
   { mime = "application/openxmlformats-officedocument.spreadsheetml.sheet", block = true, use = [
     "xlsx",
