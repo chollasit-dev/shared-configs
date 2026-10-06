@@ -9,6 +9,7 @@ caddy = "latest"
 carapace = "latest"
 claude = "latest"
 cloc = "latest"
+codex = "latest"
 fd = "latest"
 fzf = "latest"
 gallery-dl = "latest"
@@ -41,6 +42,11 @@ yazi = "latest"
 yq = "latest"
 yt-dlp = { version = "latest", rename_exe = "yt-dlp" }
 zoxide = "latest"
+
+# Go bin that should be installed via local Go toolchain
+"go:github.com/melkeydev/go-blueprint" = "latest"
+"go:golang.org/x/vuln/cmd/govulncheck" = "latest"
+"go:golang.org/x/pkgsite/cmd/internal/pkgsite-cli" = "latest"
 
 [env]
 MISE_COLOR_THEME = "catppuccin"
