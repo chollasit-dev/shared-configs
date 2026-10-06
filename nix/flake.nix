@@ -7,10 +7,8 @@
     arch = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${arch};
     tools = with pkgs; [
-      cloc
       csvlens
       dig
-      glow
       litecli
       nmap
       pgcli
