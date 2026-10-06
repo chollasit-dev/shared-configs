@@ -1,6 +1,3 @@
-[Added Associations]
-application/zip=firefox.desktop;
-
 [Default Applications]
 application/pdf=firefox.desktop
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=onlyoffice-desktopeditors.desktop
@@ -32,3 +29,4 @@ x-scheme-handler/https=firefox.desktop
 x-scheme-handler/nxm=com.nexusmods.app.desktop
 x-scheme-handler/postman=Postman.desktop
 x-scheme-handler/unknown=firefox.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
