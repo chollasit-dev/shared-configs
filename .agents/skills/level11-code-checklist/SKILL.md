@@ -26,10 +26,11 @@ commit
 ### Code Quality
 
 - [ ] Tests added or updated for the changed behaviour
-- [ ] `make lint-new` and `yarn lint-ci` pass (no new lint issues)
 - [ ] Schema changes: `migrations/` and `table.sql` are in sync, version bumped
       per `semver.md`
 - [ ] DB writes are wrapped in `activity.WithLog` with a matching
       `activity.Info`
 - [ ] New UI strings go through `useT`
+- [ ] Go vulnerability test
+- [ ] `make lint-new` and `yarn lint-ci` pass (no new lint issues)
 - [ ] Screenshots attached for UI changes
