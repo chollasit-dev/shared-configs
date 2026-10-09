@@ -7,8 +7,8 @@ dotfiles.default_mode = "symlink"
 
 
 [dotfiles]
-"~/.agents" = { source = "~/shared-configs/.claude", mode = "symlink-each" }
-"~/.claude" = { mode = "symlink-each" }
+"~/.agents" = { mode = "copy" }
+"~/.claude" = { source = "~/shared-configs/.agents", mode = "symlink-each" }
 "~/.config" = { mode = "symlink-each" }
 "~/.local" = { mode = "symlink-each" }
 "~/.oh-my-zsh" = { mode = "symlink-each" }
