@@ -21,3 +21,7 @@ pnpm i || {
 
 pnpm approve-builds &&
   echo "[pnpm] Install npm packages successfully"
+
+# AI skills.sh
+pnpm dlx skills add mattpocock/skills --global --skill grill-me --agent claude-code opencode --yes
+pnpm dlx skills add JetBrains/go-modern-guidelines --global --skill use-modern-go --agent claude-code opencode --yes
