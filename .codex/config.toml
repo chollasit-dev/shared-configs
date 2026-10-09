@@ -1,0 +1,23 @@
+# Taplo LSP schema specification
+#:schema https://developers.openai.com/codex/config-schema.json
+
+model_reasoning_effort = "medium"
+
+[tui]
+screen_reader_detection_done = true
+session_picker_view = "dense"
+
+[tui.model_availability_nux]
+"gpt-6.1-sol" = 4
+
+[projects."/home/chin/Documents"]
+trust_level = "trusted"
+
+[projects."/home/chin/projects/jobs/level11/pman/"]
+trust_level = "trusted"
+
+[projects."/home/chin/projects/personal/my-wordbank"]
+trust_level = "trusted"
+
+[projects."/home/chin/shared-configs"]
+trust_level = "trusted"
