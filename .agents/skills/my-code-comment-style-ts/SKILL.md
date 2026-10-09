@@ -62,3 +62,20 @@ Example 2 (If the description is tight and can fits in a single line)
 /** parseDuration parses an ISO-8601 duration string into milliseconds. */
 export function parseDuration(input: string): number { ... }
 ```
+
+### Lint Ignore
+
+- Every lint ignore comment must have reason
+
+Example
+
+```ts
+// eslint-disable-next-line no-console -- Here's a description about why this configuration is necessary.
+console.log('hello');
+
+/* eslint-disable-next-line no-console --
+ * Here's a very long description about why this configuration is necessary
+ * along with some additional information
+ **/
+console.log('hello');
+```
