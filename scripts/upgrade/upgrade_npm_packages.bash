@@ -13,3 +13,6 @@ command -v pnpm &>/dev/null || {
 } || echo "[pnpm] Unable to upgrade npm packages, skip upgrading dependencies, plugins, etc." >&2
 
 rm pnpm-lock.yaml yarn.lock package-lock.json pnpm-workspace.yaml &>/dev/null || :
+
+# AI skills.sh
+pnpm dlx skills update --global --yes
