@@ -5,13 +5,12 @@ arguments:
   - test
 argument-hint:
   - true|false|nil
-disable-model-invocation: true
 ---
 # Instructions
 
 Do nothing yet, just keep the following instruction in mind.
 
-/my-reply-general
+Read and follow /my-reply-general first
 
 ## Scope
 
@@ -28,8 +27,8 @@ project-specific rules in the project's own file.
 
 - If something is partially done or skipped, say so explicitly rather than
   implying completion.
-- If $test is true, run the project's typecheck/lint/test commands if they exist.
-  Don't claim success on UI/feature work without actually exercising it.
+- If $test is true, run the project's typecheck/lint/test commands if they
+  exist. Don't claim success on UI/feature work without actually exercising it.
 
 ## Discovery before assumption
 
