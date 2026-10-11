@@ -1,6 +1,7 @@
 ---
 name: level11-code-checklist
-description: Checklist for Level11 codebase. Use before user asks you to commit.
+description: >-
+  Checklist for Level11 codebase. Use when user asks to commit or open a PR.
 ---
 # Level11 Checklist
 
