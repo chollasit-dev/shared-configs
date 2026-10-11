@@ -1,0 +1,6 @@
+mise.*local*.toml
+miserc.*local*.toml
+
+**/mise.*local*.toml
+**/miserc.*local*.toml
+**/config.*local*.toml
