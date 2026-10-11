@@ -8,9 +8,9 @@ description: >-
 
 ## General code pattern
 
-- `lo.`: inline-prefer situation
+- Use `lo.` helpers where an inline expression is preferred
 - Some handlers use `lo.uniq` before passing data to their service layers
-- normal imperative: else `if x == "" { x = y }`
+- Otherwise, use plain imperative code, e.g., `if x == "" { x = y }`
 
 ## XLSX export (backend)
 
@@ -20,7 +20,7 @@ description: >-
 ## Logging
 
 - UI
-  - Do not use semicolon use period
+  - Use period, not semicolon
   - Format: `<error>. Please <suggestion>`
 - Internal
   - Always use lowercase except
