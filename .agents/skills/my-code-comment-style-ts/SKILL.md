@@ -1,16 +1,18 @@
 ---
-name: my-comment-code-ts
+name: my-code-comment-style-ts
 description: >-
-  Prefer TypeScript code comment style. Use when writing comments in
-  TypeScript codebase.
+  Prefer TypeScript code comment style. Use when writing comments in TypeScript
+  codebase.
 ---
 # Comment Conventions
+
+Read and follow /my-code-comment-style first
 
 Apply when writing comments additional to up-to-date best practices. Override
 when these conflict with defaults from best practices.
 
 Only write one when the _why_ is non-obvious: a hidden constraint, a subtle
-invariant, a workaround, or behavior that surprise a reader. If removing the
+invariant, a workaround, or behavior that surprises a reader. If removing the
 comment wouldn't confuse anyone, omit it.
 
 Never explain _what_ the code does unless it is not a well-named identifier and
@@ -19,8 +21,6 @@ is impossible to rename
 Don't write meta/scope-explanation preambles about where or when a note applies
 (e.g. "Applies when...", "If you want this elsewhere, copy this file...") —
 stick to the subject matter itself
-
-When working
 
 ## JS/TS Conventions
 
@@ -38,7 +38,7 @@ Skip JSDoc for
 
 ### JSDoc format
 
-- Use JSDoc directive if the summary has detail that justify JSDoc directive
+- Use JSDoc directive if the summary has detail that justifies JSDoc directive
   (`@param`, `@returns`, `@throws`, `@example`, etc.) and the signature itself
   isn't enough
 - Otherwise, one short summary line is usually enough.
@@ -47,7 +47,6 @@ Example 1
 
 ```ts
 /**
- *
  * <long_description_with_more_than_1_line>
  *
  * @param input - an ISO-8601 duration
@@ -56,7 +55,7 @@ Example 1
 export function parseDuration(input: string): number { ... }
 ```
 
-Example 2 (If the description is tight and can fits in a single line)
+Example 2 (If the description is tight and can fit in a single line)
 
 ```ts
 /** parseDuration parses an ISO-8601 duration string into milliseconds. */

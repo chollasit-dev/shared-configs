@@ -4,13 +4,9 @@ description: Prefer Go test style. Use when writing tests in Go codebase.
 ---
 # My Go Test Style
 
-## Common
+Read and follow /my-code-test-style first
 
-- No semicolon
-
-## Label
-
-### Test Name
+## Test Name
 
 `<path>: <condition>`
 
@@ -28,9 +24,9 @@ Example
 - qualified: fee equals gain
 - not qualified: positive fee row
 
-### Assertion Message
+## Assertion Message
 
-The message should be gramatically correct while following rules below
+The message should be grammatically correct while following rules below
 
 - Do not include article: a, an, the, etc.
 - Keep it concise while still human readable
