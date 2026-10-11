@@ -50,3 +50,27 @@ zoxide = "latest"
 [env]
 MISE_COLOR_THEME = "catppuccin"
 OLLAMA_CONTEXT_LENGTH = "65536"
+
+[bootstrap.repos]
+"~/shared-configs" = { url = "git@github.com:chollasit-dev/shared-configs.git" }
+
+[settings.dotfiles]
+default_mode = "symlink"
+
+[dotfiles]
+"~/.agents" = { source = "~/shared-configs/.agents", mode = "copy" }
+"~/.claude" = { source = "~/shared-configs/.agents", mode = "symlink-each" }
+"~/.claude/settings.json" = { source = "~/shared-configs/.claude/settings.json" }
+"~/.codex" = { source = "~/shared-configs/.codex", mode = "symlink-each" }
+"~/.config" = { source = "~/shared-configs/.config", mode = "symlink-each" }
+"~/.local" = { source = "~/shared-configs/.local", mode = "symlink-each" }
+"~/.oh-my-zsh" = { source = "~/shared-configs/.oh-my-zsh", mode = "symlink-each" }
+"~/scripts/rc" = { source = "~/shared-configs/scripts/rc", mode = "symlink-each" }
+"~/.gitattributes" = { source = "~/shared-configs/.gitattributes" }
+"~/.gitconfig" = { source = "~/shared-configs/.gitconfig" }
+"~/.prettierrc" = { source = "~/shared-configs/.prettierrc" }
+"~/.sqliterc" = { source = "~/shared-configs/.sqliterc" }
+"~/.vimrc" = { source = "~/shared-configs/.vimrc" }
+"~/.zshenv" = { source = "~/shared-configs/.zshenv" }
+"~/.zshrc" = { source = "~/shared-configs/.zshrc" }
+"~/package.json" = { source = "~/shared-configs/package.json" }

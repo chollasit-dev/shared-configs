@@ -1,24 +1,12 @@
 #:schema https://mise.en.dev/schema/mise.json
 
-[settings]
-dotfiles.root = "~/shared-configs/"
-dotfiles.default_mode = "symlink"
+[vars]
+root = "shared-configs"
+mise_conf = "config.toml"
+miserc_conf = "miserc.local.toml"
 
-
-[dotfiles]
-"~/.agents" = { mode = "copy" }
-"~/.claude" = { source = "~/shared-configs/.agents", mode = "symlink-each" }
-"~/.codex" = { mode = "symlink-each" }
-"~/.config" = { mode = "symlink-each" }
-"~/.local" = { mode = "symlink-each" }
-"~/.oh-my-zsh" = { mode = "symlink-each" }
-"~/scripts/rc" = { mode = "symlink-each" }
-
-"~/.gitattributes" = {}
-"~/.gitconfig" = {}
-"~/.prettierrc" = {}
-"~/.sqliterc" = {}
-"~/.vimrc" = {}
-"~/.zshenv" = {}
-"~/.zshrc" = {}
-"~/package.json" = {}
+[tasks.stow]
+run = """
+ln -sf {{ env.HOME }}/{{ vars.root }}/.config/mise/{{ vars.mise_conf }} {{ env.HOME }}/.config/mise/{{ vars.mise_conf }}
+ln -sf {{ env.HOME }}/{{ vars.root }}/.config/mise/{{ vars.miserc_conf }} {{ env.HOME }}/.config/mise/{{ vars.miserc_conf }}
+"""
