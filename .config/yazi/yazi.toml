@@ -2,7 +2,6 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 # See also: https://yazi-rs.github.io/docs/resources/
 
-# Taplo LSP schema specification
 #:schema https://yazi-rs.github.io/schemas/yazi.json
 
 
