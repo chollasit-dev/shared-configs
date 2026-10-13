@@ -17,7 +17,8 @@ Commit $scope, in based on $format style
 ## Conventions
 
 - Split the changes into multiple commit if needed
-- Do not add co-authored message unless being asked to
+- Always add a blank line between commit title and body
 - Prefer bullet points for multi-line commit description body over long
   paragraphs
 - Write what is done, not what was decided against
+- Do not add co-authored message unless being asked to
