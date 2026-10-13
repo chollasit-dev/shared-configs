@@ -1,7 +1,6 @@
 ---
 name: my-code-style-ts
-description: >-
-  Prefer TypeScript code style. Use when working on TypeScript codebase.
+description: Prefer TypeScript code style. Use when working on TypeScript codebase.
 ---
 # My TypeScript Coding Style
 
@@ -39,9 +38,9 @@ Prefer these where applicable
 - Math.sumPrecise
 - Explicit Resource Management
 - Temporal API
+- Brand types: `type InvoiceId = string & { [__brand]: "invoiceId" }`
 
 Note that these above should not introduce unnecessary overhead. Some are
 unnecessary if widely-used syntaxes already solved the issue, e.g., JS object is
 fine over the map when no unsupported map operations are needed or no
 significant performance gain
-
