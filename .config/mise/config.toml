@@ -57,6 +57,7 @@ OLLAMA_CONTEXT_LENGTH = "65536"
 
 [bootstrap.repos]
 "~/shared-configs" = { url = "git@github.com:chollasit-dev/shared-configs.git" }
+"~/zsh-syntax-highlighting" = { url = "git@github.com:zsh-users/zsh-syntax-highlighting.git" }
 
 [settings.dotfiles]
 default_mode = "symlink"
@@ -69,6 +70,7 @@ default_mode = "symlink"
 "~/.config" = { source = "~/shared-configs/.config", mode = "symlink-each" }
 "~/.local" = { source = "~/shared-configs/.local", mode = "symlink-each" }
 "~/.oh-my-zsh" = { source = "~/shared-configs/.oh-my-zsh", mode = "symlink-each" }
+"~/init" = { source = "~/shared-configs/init" }
 "~/scripts/rc" = { source = "~/shared-configs/scripts/rc", mode = "symlink-each" }
 "~/.gitattributes" = { source = "~/shared-configs/.gitattributes" }
 "~/.gitconfig" = { source = "~/shared-configs/.gitconfig" }
