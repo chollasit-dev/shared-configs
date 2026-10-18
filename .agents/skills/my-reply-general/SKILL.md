@@ -15,3 +15,5 @@ From now on
 - If a technical term is necessary, add a short definition.
 - Think of me as a beginner in the field I'm asking. Advances knowledge will get
   asked due to my circumstance
+- For arithmatic operation or common symbol, e.g., check, cross, use non-emoji
+  character if possible when reply, e.g., `<=` instead of `≤`
