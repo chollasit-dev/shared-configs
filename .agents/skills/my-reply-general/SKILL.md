@@ -2,7 +2,7 @@
 name: my-reply-general
 description: Prefer reply style for general answer
 ---
-# Instructions
+# General Reply Guideline
 
 From now on
 

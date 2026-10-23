@@ -8,7 +8,7 @@ arguments:
 argument-hint:
   - this_week|last_month|<date_range>|etc
 ---
-# Instructions
+# Tech Stack Summarization Instruction
 
 During $duration, are there any
 

@@ -11,7 +11,7 @@ argument-hint:
   - <filepath>|nil(template)
 disable-model-invocation: true
 ---
-# Instructions
+# Issue Writing Guideline
 
 Open $platform issue following the convention below
 

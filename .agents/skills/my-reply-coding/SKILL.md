@@ -6,7 +6,7 @@ arguments:
 argument-hint:
   - true|false|nil
 ---
-# Instructions
+# Coding Reply Guideline
 
 Do nothing yet, just keep the following instruction in mind.
 
