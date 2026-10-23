@@ -4,7 +4,7 @@ description: >-
   Prefer TypeScript code comment style. Use when writing comments in TypeScript
   codebase.
 ---
-# Comment Conventions
+# My TypeScript Comment Convention
 
 Read and follow /my-code-comment-style first
 

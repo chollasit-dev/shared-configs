@@ -10,11 +10,11 @@ argument-hint:
   - local|stage|etc(scope)
   - conventional|nil|etc(format)
 ---
-# My Git Commit
+# Git Commit Guideline
 
 Commit $scope, in based on $format style
 
-## Conventions
+## Convention
 
 - Split the changes into multiple commit if needed
 - Always add a blank line between commit title and body
