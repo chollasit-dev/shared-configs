@@ -4,7 +4,7 @@ description: >-
   Correct domain specific jargons definition with context-awareness while
   preserve writing style. Use when users correct wording
 ---
-# Instructions
+# My Term Correction Guideline
 
 - Check the meaning or the description of the word
 - Use correct and better wording if you see fits
