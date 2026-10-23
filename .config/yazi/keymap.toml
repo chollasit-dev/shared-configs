@@ -1,0 +1,9 @@
+#:schema https://yazi-rs.github.io/schemas/keymap.json
+
+[mgr]
+prepend_keymap = [
+  { on = [
+    "c",
+    "i",
+  ], run = "shell -- wl-copy < %h", desc = "Copy image to clipboard" },
+]
