@@ -12,15 +12,28 @@ cd "$FLAKE_PATH_DIR" || {
     exit
 }
 
-{
-  nix flake update &&
-    nix profile upgrade "$PROFILE" &&
-    nix store gc &&
-    nix store optimise &&
-    nix profile wipe-history
-} || {
-  echo "[Nixpkgs] Failed to upgrade Nix packages" >&2 && exit
-}
+rm "$FLAKE_PATH_DIR/flake.lock" &>/dev/null
+
+if nix profile list --json | jq -e ".elements | has(\"$PROFILE\")" >/dev/null; then
+  {
+    nix flake update &&
+      nix profile upgrade "$PROFILE" &&
+      nix store gc &&
+      nix store optimise &&
+      nix profile wipe-history
+  } || {
+    echo "[Nixpkgs] Failed to upgrade Nix packages" >&2 && exit
+  }
+else
+  {
+    nix profile add &&
+      nix store gc &&
+      nix store optimise &&
+      nix profile wipe-history
+  } || {
+    echo "[Nixpkgs] Failed to upgrade Nix packages" >&2 && exit
+  }
+fi
 
 echo "[Nixpkgs] upgrade packages successfully"
 
