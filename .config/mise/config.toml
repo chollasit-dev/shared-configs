@@ -50,6 +50,7 @@ zoxide = "latest"
 "go:golang.org/x/pkgsite/cmd/internal/pkgsite-cli" = "latest"
 uv = "latest"
 go = "latest"
+workmux = "latest"
 
 [env]
 MISE_COLOR_THEME = "catppuccin"
