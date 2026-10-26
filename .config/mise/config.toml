@@ -55,6 +55,7 @@ workmux = "latest"
 [env]
 MISE_COLOR_THEME = "catppuccin"
 OLLAMA_CONTEXT_LENGTH = "65536"
+WORKMUX_BACKEND = "tmux"
 
 [bootstrap.repos]
 "~/shared-configs" = { url = "git@github.com:chollasit-dev/shared-configs.git" }
