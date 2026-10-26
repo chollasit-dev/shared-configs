@@ -1,0 +1,20 @@
+nerdfont: true
+# theme: default
+
+# Git
+merge_strategy: squash
+merge_keep: false
+
+# Tmux
+mode: session
+windows:
+  - name: code
+    panes:
+      - command: nvim .
+        focus: true
+  - name: term
+# Apend space to add padding between border end which match current Tmux bar styling
+status_icons:
+  working: ' '
+  waiting: ' '
+  done: ' '
