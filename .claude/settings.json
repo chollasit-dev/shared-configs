@@ -65,6 +65,18 @@
         "matcher": "permission_prompt|elicitation_dialog"
       }
     ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "async": true,
+            "command": "jq -r '.tool_input.questions[0].question // \"Question waiting\"' | { read -r q; notify-send -a Claude --icon=dialog-question \"Claude: ${PWD##*/}\" \"$q\"; } 2>/dev/null || true",
+            "type": "command"
+          }
+        ],
+        "matcher": "AskUserQuestion"
+      }
+    ],
     "PostToolUse": [
       {
         "hooks": [
@@ -91,6 +103,11 @@
         "hooks": [
           {
             "command": "workmux set-window-status done",
+            "type": "command"
+          },
+          {
+            "async": true,
+            "command": "notify-send -a Claude --icon=dialog-information 'Claude: done' \"${PWD##*/}\" 2>/dev/null || true",
             "type": "command"
           }
         ]
