@@ -28,7 +28,7 @@ prepend_rules = [
     "csv",
     "open",
   ] },
-  { url = "*.{aac,aiff,flac,m4a,mp3,ogg,opus,wav,webm}", block = true, use = [
+  { url = "*.{aac,aiff,flac,m4a,mp3,oga,ogg,opus,wav,webm}", block = true, use = [
     "mpv_audio",
     "play",
   ] },
