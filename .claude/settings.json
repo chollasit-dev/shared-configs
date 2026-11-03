@@ -33,6 +33,77 @@
     ],
     "defaultMode": "auto"
   },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt|elicitation_dialog",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "workmux set-window-status waiting"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.questions[0].question // \"Question waiting\"' | { read -r q; notify-send -a Claude --icon=dialog-question \"Claude: ${PWD##*/}\" \"$q\"; } 2>/dev/null || true",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "workmux set-window-status working"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|fork",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "workmux register-agent"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "workmux set-window-status done"
+          },
+          {
+            "type": "command",
+            "command": "notify-send -a Claude --icon=dialog-information 'Claude: done' \"${PWD##*/}\" 2>/dev/null || true",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "workmux set-window-status working"
+          }
+        ]
+      }
+    ]
+  },
   "enabledPlugins": {
     "plannotator@plannotator": true
   },
@@ -49,77 +120,5 @@
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": false,
-  "skipAutoPermissionPrompt": true,
-
-  "hooks": {
-    "Notification": [
-      {
-        "hooks": [
-          {
-            "command": "workmux set-window-status waiting",
-            "type": "command"
-          }
-        ],
-        "matcher": "permission_prompt|elicitation_dialog"
-      }
-    ],
-    "PreToolUse": [
-      {
-        "hooks": [
-          {
-            "async": true,
-            "command": "jq -r '.tool_input.questions[0].question // \"Question waiting\"' | { read -r q; notify-send -a Claude --icon=dialog-question \"Claude: ${PWD##*/}\" \"$q\"; } 2>/dev/null || true",
-            "type": "command"
-          }
-        ],
-        "matcher": "AskUserQuestion"
-      }
-    ],
-    "PostToolUse": [
-      {
-        "hooks": [
-          {
-            "command": "workmux set-window-status working",
-            "type": "command"
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "command": "workmux register-agent",
-            "type": "command"
-          }
-        ],
-        "matcher": "startup|resume|clear|fork"
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "command": "workmux set-window-status done",
-            "type": "command"
-          },
-          {
-            "async": true,
-            "command": "notify-send -a Claude --icon=dialog-information 'Claude: done' \"${PWD##*/}\" 2>/dev/null || true",
-            "type": "command"
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "command": "workmux set-window-status working",
-            "type": "command"
-          }
-        ]
-      }
-    ]
-  }
+  "skipAutoPermissionPrompt": true
 }

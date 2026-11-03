@@ -1,5 +1,4 @@
 {
-  "$schema": "https://www.schemastore.org/codex-hooks.json",
   "hooks": {
     "PermissionRequest": [
       {

@@ -69,6 +69,7 @@ default_mode = "symlink"
 "~/.claude" = { source = "~/shared-configs/.agents", mode = "symlink-each" }
 "~/.claude/settings.json" = { source = "~/shared-configs/.claude/settings.json" }
 "~/.codex" = { source = "~/shared-configs/.codex", mode = "symlink-each" }
+"~/.codex/AGENTS.md" = { source = "~/shared-configs/.agents/AGENTS.md" }
 "~/.config" = { source = "~/shared-configs/.config", mode = "symlink-each" }
 "~/.local" = { source = "~/shared-configs/.local", mode = "symlink-each" }
 "~/.oh-my-zsh" = { source = "~/shared-configs/.oh-my-zsh", mode = "symlink-each" }
