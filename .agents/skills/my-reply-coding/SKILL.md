@@ -8,9 +8,7 @@ argument-hint:
 ---
 # Coding Reply Guideline
 
-Do nothing yet, just keep the following instruction in mind.
-
-Read and follow /my-reply-general first
+Keep the following instruction in mind. Read and follow /my-reply-general first
 
 ## Scope
 

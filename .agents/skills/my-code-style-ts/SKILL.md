@@ -4,16 +4,7 @@ description: Prefer TypeScript code style. Use when working on TypeScript codeba
 ---
 # My TypeScript Coding Style
 
-## Prerequisite
-
-Before determine which syntax version to use
-
-- For non-project, standalone file, prefer newest syntaxes possible
-- For project-based, check if
-  - The project targets an environment that supports new syntaxes
-  - The project has transpiler to convert new syntaxes down to the target
-    environment.
-  - If none is specified, use the latest syntaxes
+Read and follow /my-code-style first
 
 ## Rules
 
