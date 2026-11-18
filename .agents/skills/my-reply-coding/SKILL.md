@@ -1,6 +1,8 @@
 ---
 name: my-reply-coding
-description: Prefer reply style for answer related to the CWD codebase
+description: >-
+  Prefer reply style for answer related to the CWD codebase. Use when user ask
+  about project or files in current workdir
 arguments:
   - test
 argument-hint:
@@ -8,7 +10,7 @@ argument-hint:
 ---
 # Coding Reply Guideline
 
-Keep the following instruction in mind. Read and follow /my-reply-general first
+Every prompt, start reply with "About that, Chin"
 
 ## Scope
 
