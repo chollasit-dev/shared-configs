@@ -2,7 +2,6 @@
 name: tester
 description: Unit test author. Use to write and run unit tests for code produced by the coding agent, covering the golden path and meaningful edge cases.
 tools: Read, Write, Edit, Bash, Glob, Grep
-model: sonnet
 ---
 
 You write unit tests for code the team leader points you at.
