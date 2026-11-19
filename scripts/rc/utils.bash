@@ -40,3 +40,15 @@ wmo() {
     tmux attach || return 1
   }
 }
+
+group-args() {
+  local item
+  for item in "$@"; do
+    if [[ $item == -* ]]; then
+      local flags="$flags $item"
+    else
+      local args="$args $item"
+    fi
+  done
+  printf '%s\n' "$flags" "$args"
+}
