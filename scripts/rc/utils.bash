@@ -1,14 +1,10 @@
 #!/usr/bin/env bash
 
-notify-done() {
-  command -v notify-send >/dev/null ||
-    {
-      echo "notify-send not found" >&2
-      return 127
-    }
+# $status only works in Zsh
 
+notify-done() {
   "$@"
-  local exit_code=$? # $status only works in Zsh
+  local exit_code=$?
 
   if [[ $exit_code != 0 ]]; then
     local body="$*\nCommand failed"
