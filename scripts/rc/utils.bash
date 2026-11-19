@@ -52,3 +52,30 @@ group-args() {
   done
   printf '%s\n' "$flags" "$args"
 }
+
+notify-ai() {
+  local type=${1-} harness=${2:-unknown} sess=${3:-unnamed}
+  local question=${4-} reply=${5-} body
+
+  case "$type" in
+  input)
+    (($# == 5)) || {
+      echo "Missing args: expected 5; received $#" >&2
+      return 1
+    }
+    body="$sess: $question\nUser: $reply"
+    ;;
+  done)
+    body="Q: $question\nA: $reply"
+    ;;
+  *)
+    printf 'Usage: notify-ai {input|done} harness session question reply\n' >&2
+    return 2
+    ;;
+  esac
+
+  notify-send \
+    --hint=string:synchronous:"$PWD"-"$harness"-"$sess"-"$type" \
+    "${PWD##*/}" \
+    "$body"
+}
