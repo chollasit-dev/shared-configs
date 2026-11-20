@@ -17,13 +17,26 @@ notify-done() {
   return "$exit_code"
 }
 
+abort() {
+  printf "%s\n" "$*" >&2
+  return 1
+}
+
+fail() {
+  abort "$@"
+}
+
 wm() {
   tmux has 2>/dev/null || {
     tmux new -d || return 1
   }
   local dir
-  dir=$(fd -g '.workmux.yaml' "$HOME" --hidden --no-ignore --exec dirname | fzf || pwd)
-  cd "$dir" || return 1
+  dir=$(fd -g '.workmux.yaml' "$HOME" --hidden --no-ignore --exec dirname | fzf)
+  if [[ -n $dir ]]; then
+    cd "$dir" || return 1
+  else
+    abort "wm: no workspace selected"
+  fi
 }
 
 wmo() {
@@ -32,9 +45,9 @@ wmo() {
 
   branch=$(git branch --show-current 2>/dev/null)
   [[ -n $branch ]] || {
-    echo "No git branch exists, did you forget to run git init?" >&2
     cd "$cwd" || :
-    return 1
+    abort "wmo: could not determine current Git branch. Is workspace a Git repository and a branch is switched to?" ||
+      return 1
   }
   workmux open "$branch" 2>/dev/null || {
     tmux attach || return 1
@@ -60,8 +73,7 @@ notify-ai() {
   case "$type" in
   input)
     (($# == 5)) || {
-      echo "Missing args: expected 5; received $#" >&2
-      return 1
+      fail "notify-ai: expects 5 arguments (received $#)" || return 1
     }
     body="$sess: $question\nUser: $reply"
     ;;
@@ -69,8 +81,7 @@ notify-ai() {
     body="Q: $question\nA: $reply"
     ;;
   *)
-    printf 'Usage: notify-ai {input|done} harness session question reply\n' >&2
-    return 2
+    fail 'Usage: notify-ai {input|done} harness session question reply' || return 2
     ;;
   esac
 
