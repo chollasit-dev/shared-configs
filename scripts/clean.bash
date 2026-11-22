@@ -1,18 +1,39 @@
 #!/usr/bin/env bash
 
 set -eu -o pipefail
+# nullglob: prevent no-match glob from expanding to literal `*`
+# dotglob: expand hidden too
+shopt -s dotglob nullglob
 
-rm "$HOME/.zsh_history" &>/dev/null
-echo "[clean.bash] Remove shell command history"
+log() {
+  local scope=${1-clean} msg=${2-}
+  printf "[%s] %s\n" "$scope" "$msg"
+}
 
-rm -rf "$HOME/.local/share/Trash/*" &>/dev/null
-echo "[clean.bash] Clear Trash bin"
+error() {
+  local scope=${1-} msg=${2-}
+  printf "[clean%s] %s\n" "${scope:+.$scope}" "$msg" >&2
+}
 
-rm -rf "$HOME/.local/share/opencode/{log,snapshot,storage}"
-read -p "Should remove prompt history? [y/n] " -r rm_history_opts
-case "$rm_history_opts" in
-"y" | "Y")
-  rm "$HOME/.local/state/opencode/prompt-history.jsonl"
-  echo "[clean.bash] Failed to remove OpenCode prompt history" >&2
-  ;;
-esac
+try() {
+  local scope=$1 msg=$2 err
+  shift 2
+  if err="$("$@" 2>&1 >/dev/null)"; then
+    log "$scope" "$msg"
+  else
+    error "$scope" "${err:-$msg}"
+  fi
+}
+
+try trash "Clear trash can (recycle bin)" \
+  rm -rf "${HOME:?}/.local/share/Trash/"*
+
+try opencode "Remove OpenCode artifacts" \
+  rm -rf "${HOME:?}"/.local/share/opencode/{log,prompt-history.jsonl,snapshot,storage}
+
+try claude "Remove Claude Code artifacts" \
+  rm -rf "${HOME:?}"/.claude/{backups,telemetry,paste-cache}*
+try claude "Remove Claude Code artifacts" \
+  rm -rf "${HOME:?}"/.claude/history.jsonl
+
+try codex "Remove Codex artifacts" rm -rf "${HOME:?}"/.codex/history.jsonl
