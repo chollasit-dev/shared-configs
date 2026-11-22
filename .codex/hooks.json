@@ -24,7 +24,7 @@
       {
         "hooks": [
           {
-            "command": "q=$(jq -r '.tool_input.questions[0].question // empty' 2>/dev/null); notify-send -a Codex --icon=dialog-question \"Codex: ${PWD##*/}\" \"${q:-Input needed}\"",
+            "command": "bash -c '. \"$HOME/scripts/rc/utils.bash\" && notify-ai-hook input Codex \"Input needed\"'",
             "timeout": 5,
             "type": "command"
           }
@@ -55,7 +55,7 @@
       {
         "hooks": [
           {
-            "command": "notify-send -a Codex --icon=dialog-information 'Codex: done' \"${PWD##*/}\"",
+            "command": "bash -c '. \"$HOME/scripts/rc/utils.bash\" && notify-ai-hook done Codex'",
             "timeout": 5,
             "type": "command"
           }

@@ -51,7 +51,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '.tool_input.questions[0].question // \"Question waiting\"' | { read -r q; notify-send -a Claude --icon=dialog-question \"Claude: ${PWD##*/}\" \"$q\"; } 2>/dev/null || true",
+            "command": "bash -c '. \"$HOME/scripts/rc/utils.bash\" && notify-ai-hook input Claude \"Question waiting\"' 2>/dev/null || true",
             "async": true
           }
         ]
@@ -87,7 +87,7 @@
           },
           {
             "type": "command",
-            "command": "notify-send -a Claude --icon=dialog-information 'Claude: done' \"${PWD##*/}\" 2>/dev/null || true",
+            "command": "bash -c '. \"$HOME/scripts/rc/utils.bash\" && notify-ai-hook done Claude' 2>/dev/null || true",
             "async": true
           }
         ]
