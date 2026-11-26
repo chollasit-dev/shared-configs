@@ -51,6 +51,8 @@ zoxide = "latest"
 uv = "latest"
 go = "latest"
 workmux = "latest"
+7zip = "latest"
+7z = "latest"
 
 [env]
 MISE_COLOR_THEME = "catppuccin"
